@@ -1,0 +1,4 @@
+baseURL = "https://tonybox.net/"
+languageCode = "en-us"
+title = "tonybox.net"
+disqusShortname = "tonybox"

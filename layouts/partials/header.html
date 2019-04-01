@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<head>
+    {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
+    <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+    <title>{{ .Title }}</title>
+</head>
+
+<body>
+    {{ partial "menu.html" . }}

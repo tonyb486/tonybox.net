@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+<article>
+    <div id="hero" class="post">
+        <div id="postinfo">
+            Latest Posts
+        </div>
+    </div>
+    <div id="content">
+        {{ range .Pages }}
+        <a class="post" href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+        {{ end }}
+    </div>
+</article>
+{{ partial "footer.html" . }}
