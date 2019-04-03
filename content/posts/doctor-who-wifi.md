@@ -18,7 +18,7 @@ In this week’s episode of Doctor Who, [The Bells of Saint John](https://en.wik
 
 ## How Does It Work?
 
-As you can see in the youtube video above, theres a pretty cool way to make this happen, using a Linux machine with a USB wifi card, hostapd, and a simple web server. 
+As you can see in the video above, theres a pretty cool way to make this happen, using a Linux machine with a USB wifi card, hostapd, and a simple web server. 
 
 The reason it opens up by itself on macOS is because macOS tries to automatically detect if there is a captive portal login screen, like those commonly used by coffee shops and such.  In the case of macOS, it does this by sending a request to captive.apple.com; other operating systems also have this feature, and use different servers. 
 
