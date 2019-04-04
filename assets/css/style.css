@@ -223,3 +223,16 @@ p { margin: 10px 5px;}
 div#disqus_thread {
     padding: 20px;
 }
+
+div#footer {
+    text-align: justify;
+    max-width: 900px;
+    margin: 0px auto;
+    padding: 20px;
+    font-size: 11px;
+    color: #555;
+}
+
+div#footer a {
+    color: #555;
+}
