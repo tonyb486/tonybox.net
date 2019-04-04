@@ -93,12 +93,16 @@ a.post {
     color: black;
 }
 
+div.summary {
+    padding: 0px 30px;
+}
+
 
 @media (min-width: 600px) {
 
     div#postinfo {
-        max-width: 1000px;
-        padding: 40px 0px;
+        max-width: 920px;
+        padding: 40px 40px;
         font-size: 24px;
         margin: 80px auto 0px;
     }
