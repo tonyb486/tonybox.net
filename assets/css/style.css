@@ -41,9 +41,11 @@ section#hero.home {
     font-size: 24px;
 }
 
-div#content {
-    max-width: 1000px;
+section#content {
+    max-width: 960px;
+    display: block;
     margin: 0px auto;
+    padding: 20px;
     background: #fff;
     font-size: 16px;
     line-height: 150%;
@@ -89,7 +91,6 @@ a.option {
 
 a.post {
     display: block;
-    padding: 15px;
     color: black;
 }
 

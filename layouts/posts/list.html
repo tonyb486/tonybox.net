@@ -4,16 +4,17 @@
         Latest Posts
     </div>
 </section>
-<div id="content">
+<section id="content">
     {{ range .Pages }}
-    <a class="post" href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
     <div class="summary">
-        {{ .Summary }}
-        {{ if .Truncated }}
-        <a href="{{ .RelPermalink }}">Read More…</a>
-        {{ end }}
+        <h3>
+            <a class="post" href="{{.Permalink}}">{{.Title}}</a>
+        </h3>
+        <p>{{.Date.Format "2006-01-02"}}</p>
+        <p>{{ .Summary }}</p>
+        <p><a href="{{ .RelPermalink }}">Read More...</a></p>
     </div>
     {{ end }}
     <br />
-</div>
+</section>
 {{ partial "footer.html" . }}
