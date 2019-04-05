@@ -13,7 +13,6 @@ draft: false
 <!--
 <iframe width="100%" height="315" src="https://www.youtube.com/embed/GlQD9sxTsAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 -->
-## Why Are We Capturing Souls?
 In this week’s episode of Doctor Who, [The Bells of Saint John](https://en.wikipedia.org/wiki/The_Bells_of_Saint_John), the enemy is sentient and living inside of the wifi - specifically, a wifi network with a name consisting of weird symbols would appear, the target would click on it, and it would infest their computer and eventually consume their soul and consciousness into the cloud.
 
 ## How Does It Work?
