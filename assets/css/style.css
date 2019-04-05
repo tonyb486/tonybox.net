@@ -119,6 +119,38 @@ div#footer a {
 div.center {
     text-align: center;
 }
+
+ul.projectlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100%;
+    margin: 20px -40px;
+}
+
+ul.projectlist li{
+    display: inline-block;
+    margin: 10px;
+}
+
+ul.projectlist div.proj {
+    height: 230px;
+    width: 250px;
+    padding-top: 20px;
+    box-shadow: 1px 1px 5px black;
+    background-size: cover;    
+}
+
+ul.projectlist div.projtitle {
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
 @media (min-width: 600px) {
 
     div#postinfo {
