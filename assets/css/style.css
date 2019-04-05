@@ -26,17 +26,17 @@ html {
     background: #eee;
 }
 
-div#hero {
+section#hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/img/hero.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: none;
     margin: none;
-    overflow: auto; 
+    display: flex;
 }
 
-div#hero.home {
+section#hero.home {
     height: 100%;
     font-size: 24px;
 }
@@ -97,23 +97,39 @@ div.summary {
     padding: 0px 30px;
 }
 
+div#disqus_thread {
+    padding: 20px;
+}
 
+div#footer {
+    text-align: justify;
+    max-width: 900px;
+    margin: 0px auto;
+    padding: 20px;
+    font-size: 11px;
+    color: #555;
+}
+
+div#footer a {
+    color: #555;
+}
 @media (min-width: 600px) {
 
     div#postinfo {
-        max-width: 920px;
+        width: 920px;
         padding: 40px 40px;
         font-size: 24px;
-        margin: 80px auto 0px;
     }
 
-    div#center {
-        top: 50%;
-        left: 50%;
-        text-align: left;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        text-align: center;
+    section#hero.post {
+        padding-top: 100px; 
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    section#hero.home {
+        align-items: center;
+        justify-content: center;   
     }
 
     section#menu {
@@ -154,21 +170,31 @@ div.summary {
 
     div#postinfo {
         font-size: 18px;
-        margin-top: 120px;
+        width: 100%;
         padding: 20px;
     }
+    
     section#menu {
         background: rgba(0, 0, 0, 0.4);
         margin-bottom: 20px;
         color: white;
         text-align: center;
         position: absolute;
-        top: 0;
+        top: 0; left: 0;
         width: 100%;
     }
 
-    div#hero.home {
+    section#hero {
         padding-top: 120px;
+    }
+
+    section#hero.post {
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    section#hero.home {
+        justify-content: center;   
     }
 
     section#menu span#name {
@@ -181,12 +207,6 @@ div.summary {
         padding: 10px;
         font-size: 20px;
         display: inline-block;
-        text-align: center;
-    }
-
-
-    div#center {
-        width: 100%;
         text-align: center;
     }
 
@@ -223,20 +243,3 @@ pre {
 
 p { margin: 10px 5px;} 
 
-
-div#disqus_thread {
-    padding: 20px;
-}
-
-div#footer {
-    text-align: justify;
-    max-width: 900px;
-    margin: 0px auto;
-    padding: 20px;
-    font-size: 11px;
-    color: #555;
-}
-
-div#footer a {
-    color: #555;
-}

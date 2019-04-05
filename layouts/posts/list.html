@@ -1,21 +1,19 @@
 {{ partial "header.html" . }}
-<article>
-    <div id="hero" class="post">
-        <div id="postinfo">
-            Latest Posts
-        </div>
+<section id="hero" class="post">
+    <div id="postinfo">
+        Latest Posts
     </div>
-    <div id="content">
-        {{ range .Pages }}
-        <a class="post" href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-        <div class="summary">
-            {{ .Summary }}
-            {{ if .Truncated }}
-            <a href="{{ .RelPermalink }}">Read More…</a>
-            {{ end }}
-        </div>
+</section>
+<div id="content">
+    {{ range .Pages }}
+    <a class="post" href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+    <div class="summary">
+        {{ .Summary }}
+        {{ if .Truncated }}
+        <a href="{{ .RelPermalink }}">Read More…</a>
         {{ end }}
-        <br />
     </div>
-</article>
+    {{ end }}
+    <br />
+</div>
 {{ partial "footer.html" . }}
