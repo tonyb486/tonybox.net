@@ -26,6 +26,7 @@ html {
     background: #eee;
 }
 
+a { color: black; }
 section#hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("/img/hero.jpg");
     background-position: center;
