@@ -113,6 +113,10 @@ div#footer {
 div#footer a {
     color: #555;
 }
+
+div.center {
+    text-align: center;
+}
 @media (min-width: 600px) {
 
     div#postinfo {
@@ -167,6 +171,10 @@ div#footer a {
 }
 
 @media (max-width: 600px) {
+
+    div.center {
+        width: 100%;
+    } 
 
     div#postinfo {
         font-size: 18px;
