@@ -103,7 +103,7 @@ div#disqus_thread {
     padding: 20px;
 }
 
-div#footer {
+section#footer {
     text-align: justify;
     max-width: 900px;
     margin: 0px auto;
@@ -112,7 +112,7 @@ div#footer {
     color: #555;
 }
 
-div#footer a {
+section#footer a {
     color: #555;
 }
 
