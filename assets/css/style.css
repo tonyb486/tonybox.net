@@ -150,6 +150,10 @@ ul.projectlist div.projtitle {
     background: rgba(0, 0, 0, 0.4);
 }
 
+div#article img {
+    margin: 0px auto;
+    max-width: 100%;
+}
 
 @media (min-width: 600px) {
 
