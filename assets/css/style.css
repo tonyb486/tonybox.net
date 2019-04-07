@@ -289,3 +289,78 @@ pre {
 
 p { margin: 10px 5px;} 
 
+
+
+@media print {
+    section#hero {
+        background: none;
+        margin: none;
+        display: block;
+        padding: 0px;
+    }
+
+    section#hero.post {
+        display: block;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    section#menu { 
+        display: none;
+    }
+
+    section#content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    div#postinfo {
+        color: black;
+        width: 100%;
+        margin: 0px;
+        padding: 25px 0px;
+        background: none;
+    }
+    body, html { 
+        background: white; 
+        padding: 0;
+        margin: 0;
+        font-family: serif;
+    }
+
+    video {
+        display: none;
+    }
+
+    div#disqus_thread {
+        display: none;
+    }
+
+    pre {
+        color: black;
+    }
+
+    section#footer {
+        width: 100%;
+        margin-top: 10px;
+        border-top: 1px solid black;
+        color: black;
+    }    
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body, html { 
+        background: #555; 
+        padding: 0;
+        margin: 0;
+    }
+    section#content {
+        background: #333;
+        color:#eee;
+    }
+
+    a { color: white; }
+}
