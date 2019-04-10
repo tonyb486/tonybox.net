@@ -119,6 +119,7 @@ footer a {
     main {
         width: auto;
         margin: 2em;
+        padding-top: 0em;
     }
 }
 
