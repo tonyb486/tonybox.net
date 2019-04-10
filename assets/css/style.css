@@ -74,6 +74,7 @@ h2 a, h3 a {
 
 small {
     display: block;
+
 }
 
 pre {
@@ -82,6 +83,10 @@ pre {
     padding: 1em;
     white-space:pre-wrap;
 }   
+
+li {
+    padding-left: 1em;
+}
 
 footer {
     color: #444;
