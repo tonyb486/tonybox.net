@@ -4,8 +4,20 @@
     <article>
         <header>
             <h1>{{ .Title }}</h1>
+
             <address>Anthony Biondo</address>
+
+
             <time>{{ .Date.Format "2006-01-02" }}</time>
+
+            <small>
+                Filed under:
+                {{ range .Param "tags" }}
+                {{ $tagpage := ($.Site.GetPage (printf "/%s/%s" "tags" ( . | urlize))) }}
+                <a href="{{ $tagpage.Permalink }}">{{.}}</a>
+                {{ end }}
+            </small>
+
         </header>
         <setion>
             {{ .Content }}
