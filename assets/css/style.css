@@ -118,15 +118,22 @@ footer a {
 
     main {
         width: auto;
-        margin: 2em;
+        margin: 0em 4em;
         padding-top: 0em;
+    }
+}
+
+/* More mobile site */
+@media (max-width: 750px) {
+    main {
+        margin: 0em 2.5em;
     }
 }
 
 /* Really mobile site */
 @media (max-width: 600px) {
     main {
-        margin: 1em;
+        margin: 0em 1em;
     }
 
     pre {
