@@ -154,7 +154,7 @@ a#mobilemenu {
 
     a#mobilemenu {
         position: absolute;
-        top: 1; left: 10px;
+        top: 0.5em; left: 0.5em;
         display: inline-block;
     }
 }
