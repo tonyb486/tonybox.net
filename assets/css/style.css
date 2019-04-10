@@ -182,6 +182,6 @@ body.dark #disqus_thread {
     color: #efefef;
 }
 
-body, main, a {
+body, main, footer, a {
     transition: 1s ease;
 }
