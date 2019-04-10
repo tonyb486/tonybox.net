@@ -156,7 +156,7 @@ body.dark a, body.dark main a {
      color: rgb(123, 252, 84); 
 }
 
-body.dark nav a, body.dark footer a {
+body.dark nav a, body.dark footer a, body.dark h1 a, body.dark h2 a {
     color: #efefef;
 }
 
