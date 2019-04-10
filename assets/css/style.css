@@ -155,3 +155,8 @@ body.dark main, body.dark nav, body.dark footer {
 body.dark a, body.dark main a, body.dark nav a, body.dark footer a {
      color: white; 
 }
+
+body.dark #disqus_thread {
+    color: #efefef;
+}
+    
