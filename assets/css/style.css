@@ -74,10 +74,10 @@ h2 a, h3 a {
 
 pre {
     border-left: 5px solid rgb(63, 104, 218);
-    overflow: scroll;
     font-size: 10pt;
     padding: 1em;
-}
+    white-space:pre-wrap;
+}   
 
 footer {
     color: #444;
@@ -126,5 +126,9 @@ footer a {
 @media (max-width: 600px) {
     main {
         margin: 1em;
+    }
+
+    pre {
+        overflow: scroll;
     }
 }
