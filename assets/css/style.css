@@ -140,3 +140,18 @@ footer a {
         overflow: scroll;
     }
 }
+
+
+/* Dark Mode */
+
+body.dark { 
+    background: #222; 
+    color: #efefef;
+}
+body.dark main, body.dark nav, body.dark footer {
+    color: #efefef;
+}
+
+body.dark a, body.dark main a, body.dark nav a, body.dark footer a {
+     color: white; 
+}
