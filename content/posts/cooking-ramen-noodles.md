@@ -1,7 +1,6 @@
 ---
 title: "How To Cook Ramen Noodles"
 date: 2018-07-09
-draft: true
 tags: ["Jokes", "Cooking"]
 ---
 
@@ -29,6 +28,6 @@ tags: ["Jokes", "Cooking"]
 
 11. I hope you held on to the child packet, because now we're going to use it. Simply rip the child packet apart, spilling powder everywhere. Don't worry, we're only going to use about half of the powder from the child packet, so whatever spilled out can just be left on the table, or used to cut cocaine to give it some more punch, if you're into that sort of thing.
 
-12. Place the remaining powder into the bowl - try to use only half the powder, if you use too much it will become too powerful and possibly dangerous. Stir the concoction with your spoon or finger, and chant the following: "OH GREAT LORD RAMEN, TOUCH US WITH YOUR NOODLY APPENDAGE."
+12. Place the remaining powder into the bowl - try to use only half the powder, if you use too much it will become too powerful and possibly dangerous. Stir the concoction with your spoon or finger, and chant the following: "OH GREAT LORD RAMEN, TOUCH US WITH YOUR NOODLY APPENDAGE."  
 
 13. Rapidly consume the noodles and the accompanying liquid like the animal you are. Congratulations, and enjoy your well-earned soup-like dinner.
