@@ -9,9 +9,14 @@
             document.body.className = localStorage.getItem("darkmode");
         }
         function toggle_darkmode() {
-            newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
+            var newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
             localStorage.setItem("darkmode", newColor);
             document.body.className = newColor;
+        }
+        function toggle_menu() {
+            var menu = document.getElementById("menu");
+            menu.className = (menu.className == "hidden") ? "shown" : "hidden"
+
         }
     </script>
     <title>{{ .Title }}</title>

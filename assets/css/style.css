@@ -89,6 +89,10 @@ footer a {
     color: black;
 }
 
+a#mobilemenu {
+    display: none;
+}
+
 /* Mobile Site */
 @media (max-width: 900px) {
     body {
@@ -138,6 +142,20 @@ footer a {
 
     pre {
         overflow: scroll;
+    }
+    aside nav div#menu a {
+        padding: 0em;
+        display: block;
+    }
+
+    nav div#menu.hidden {
+        display: none;
+    }
+
+    a#mobilemenu {
+        position: absolute;
+        top: 10px; left: 10px;
+        display: inline-block;
     }
 }
 
