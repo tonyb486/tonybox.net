@@ -30,7 +30,7 @@ Here it is, 13 easy steps to the noodle nirvana:
 
 10. Once the noodles have been in there for a few minutes and the water is appropriately cloudy, start to hit at them with a spoon or other hitting implement, like your fingers. Be careful not to break the noodles - you only need to separate them out from each other a bit.
 
-11. I hope you held on to the child packet, because now we're going to use it. Simply rip the child packet apart, spilling powder everywhere. Don't worry, we're only going to use about half of the powder from the child packet, so whatever spilled out can just be left on the table, or used to cut cocaine to give it some more punch, if you're into that sort of thing.
+11. I hope you held on to the child packet, because now we're going to use it. Simply rip the child packet apart, spilling powder everywhere. Don't worry, we're only going to use about half of the powder from the child packet, so whatever spilled out can just be left on the table, or used to cut cocaine to give it some more punch, if you're into that sort of thing.  (Kids, don't do cocaine.)
 
 12. Place the remaining powder into the bowl - try to use only half the powder, if you use too much it will become too powerful and possibly dangerous. Stir the concoction with your spoon or finger, and chant the following: "OH GREAT LORD RAMEN, TOUCH US WITH YOUR NOODLY APPENDAGE."  
 
