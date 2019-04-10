@@ -4,7 +4,7 @@ date: 2018-07-09
 tags: ["Jokes", "Cooking"]
 ---
 
-***Context:*** *A group of my friends have a "cooking club" facebook group, where we write up things that we have cooked.  I'm not very good at cooking, so I wrote up a satirical guide to cooking ramen noodles.  This did not technically violate any of the rules of we set for the club.*
+*A group of my friends have a "cooking club" facebook group, where we write up things that we have cooked.  I'm not very good at cooking, so I wrote up a satirical guide to cooking ramen noodles.  This did not technically violate any of the rules of we set for the club.*
 
 1. Obviously, locally source your ramen noodles. In my case, I locally sourced my ramen noodle packet at the Duane Reade on 3rd Avenue between 52nd and 53rd Street in New York City. Duane Reades are well known for selling ramen noodle packets, among other items.
 
