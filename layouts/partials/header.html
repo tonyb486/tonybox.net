@@ -4,6 +4,16 @@
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+    <script type="text/javascript">
+        window.onload = function () {
+            document.body.className = localStorage.getItem("darkmode");
+        }
+        function toggle_darkmode() {
+            newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
+            localStorage.setItem("darkmode", newColor);
+            document.body.className = newColor;
+        }
+    </script>
     <title>{{ .Title }}</title>
 </head>
 

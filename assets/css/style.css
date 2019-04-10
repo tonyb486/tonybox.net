@@ -152,11 +152,18 @@ body.dark main, body.dark nav, body.dark footer {
     color: #efefef;
 }
 
-body.dark a, body.dark main a, body.dark nav a, body.dark footer a {
-     color: white; 
+body.dark a, body.dark main a {
+     color: rgb(123, 252, 84); 
+}
+
+body.dark nav a, body.dark footer a {
+    color: #efefef;
 }
 
 body.dark #disqus_thread {
     color: #efefef;
 }
-    
+
+body, main, a {
+    transition: 1s ease;
+}
