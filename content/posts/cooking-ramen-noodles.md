@@ -6,6 +6,8 @@ tags: ["Jokes", "Cooking"]
 
 *A group of my friends have a "cooking club" facebook group, where we write up things that we have cooked.  I'm not very good at cooking, so I wrote up a satirical guide to cooking ramen noodles.  This did not technically violate any of the rules of we set for the club.*
 
+<!--more-->
+
 1. Obviously, locally source your ramen noodles. In my case, I locally sourced my ramen noodle packet at the Duane Reade on 3rd Avenue between 52nd and 53rd Street in New York City. Duane Reades are well known for selling ramen noodle packets, among other items.
 
 2. When selecting a packet, gently squeeze the ramen noodle packet to make sure that the noodles inside aren't cracked. The ideal ramen noodle packet should have a thin, soft plastic skin, with a hard skeleton of noodles inside. If it feels like there are bits of detached noodle, then put that packet down and get another one. If you squeeze too hard and hear a crunch, place your packet in the back of the shelf and get a new one. Don't worry, nobody saw you.
