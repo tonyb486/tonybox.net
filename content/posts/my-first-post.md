@@ -2,9 +2,8 @@
 title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetur turpis ut lectus suscipit, vitae dictum mi rutrum."
 date: 2019-03-23T13:06:15-04:00
 draft: true
+author: tonyb486
 ---
-
-# Thalamos aliter harenae puer
 
 Lorem markdownum arbore laticem ante, sub Ut **spectari** existit, fiet. Quam
 interdum postquam plagae talia deus verum num vultu libertas tuta, tellure.

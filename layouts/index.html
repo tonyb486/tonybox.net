@@ -1,11 +1,20 @@
 {{ partial "header.html" . }}
-<section id="hero" class="home">
-    <div class="center">
-        <img src="{{ .Site.BaseURL }}img/me.jpg" class="round">
-        <div id="textbox">
-            <div id="hello">Hi, I'm Tony</div>
-            I'm a tech lawyer from NYC
-        </div>
-    </div>
-</section>
-{{ partial "footer.html" . }}
+
+<main>
+    <h1>Hi, I'm Tony.</h1>
+    <p>I'm a tech lawyer from NYC. </p>
+    <p>Here, I write about technology, computers, software, and how these things interact with society.
+        In a past life, I worked as a programmer and a systems administrator for high performance computing systems.
+        I've still got the urge to tinker with technology, and here I will share my adventures, however exciting they
+        be.</p>
+    <h3>Latest Posts:</h3>
+    <ul>
+        {{ range .Pages }}
+        <article>
+            <li>{{.Date.Format "2006-01-02"}}: <a href="{{.Permalink}}">{{.Title}}</a></li>
+        </article>
+        {{ end }}
+    </ul>
+    {{ partial "footer.html" . }}
+</main>
+</body>

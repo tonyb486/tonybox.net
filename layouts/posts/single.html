@@ -1,20 +1,18 @@
 {{ partial "header.html" . }}
-<article>
 
-    <section id="hero" class="post">
-        <div id="postinfo">
-            {{ .Title }}
-            <time>{{ .Date.Format "2006-01-02 @ 15:04" }}</time>
-        </div>
-    </section>
-
-    <section id="content">
-
-        <div id="article">
+<main>
+    <article>
+        <header>
+            <h1>{{ .Title }}</h1>
+            <address>Anthony Biondo</address>
+            <time>{{ .Date.Format "2006-01-02" }}</time>
+        </header>
+        <setion>
             {{ .Content }}
-        </div>
+        </setion>
         {{ template "_internal/disqus.html" . }}
-    </section>
+    </article>
+    {{ partial "footer.html" . }}
+</main>
 
-</article>
-{{ partial "footer.html" . }}
+</body>

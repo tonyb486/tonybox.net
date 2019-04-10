@@ -4,14 +4,14 @@ date: 2013-03-31T12:03:00-04:00
 draft: false
 ---
 
-<video width="100%" height="315" controls>
+In this week’s episode of Doctor Who, [The Bells of Saint John](https://en.wikipedia.org/wiki/The_Bells_of_Saint_John), the enemy is sentient and living inside of the wifi - specifically, a wifi network with a name consisting of weird symbols would appear, the target would click on it, and it would infest their computer and eventually consume their soul and consciousness into the cloud.
+
+<video width="100%" controls>
     <source src="/vid/doctor-who-wifi.webm" 
         type='video/webm;codecs="vp9,opus"'>
     <source src="/vid/doctor-who-wifi.mp4" 
         type='video/mp4'>
 </video>
-
-In this week’s episode of Doctor Who, [The Bells of Saint John](https://en.wikipedia.org/wiki/The_Bells_of_Saint_John), the enemy is sentient and living inside of the wifi - specifically, a wifi network with a name consisting of weird symbols would appear, the target would click on it, and it would infest their computer and eventually consume their soul and consciousness into the cloud.
 
 ## How Does It Work?
 

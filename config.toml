@@ -2,3 +2,7 @@ baseURL = "https://tonybox.net/"
 languageCode = "en-us"
 title = "tonybox.net"
 disqusShortname = "tonybox"
+
+[author]
+displayName = "James Bond"
+shortBio = "Agent at the MI6"

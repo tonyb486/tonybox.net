@@ -1,20 +1,15 @@
 {{ partial "header.html" . }}
-<section id="hero" class="post">
-    <div id="postinfo">
-        Latest Posts
-    </div>
-</section>
-<section id="content">
+
+<main>
+    <h1>Latest Posts</h1>
     {{ range .Pages }}
-    <div class="summary">
-        <h3>
-            <a class="post" href="{{.Permalink}}">{{.Title}}</a>
-        </h3>
+    <article>
+        <h2><a href="{{.Permalink}}">{{.Title}}</a></h2>
         <p>{{.Date.Format "2006-01-02"}}</p>
         <p>{{ .Summary }}</p>
         <p><a href="{{ .RelPermalink }}">Read More...</a></p>
-    </div>
+    </article>
     {{ end }}
-    <br />
-</section>
-{{ partial "footer.html" . }}
+    {{ partial "footer.html" . }}
+</main>
+</body>
