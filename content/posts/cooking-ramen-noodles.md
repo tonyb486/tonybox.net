@@ -1,7 +1,7 @@
 ---
 title: "How To Cook Ramen Noodles"
 date: 2018-07-09
-tags: ["Humor", "Creative Writing"]
+tags: ["Creative Writing", "Humor"]
 ---
 
 A group of my friends have a "cooking club" facebook group, where we write up things that we have cooked.  I'm not very good at cooking, so I wrote up a satirical guide to cooking ramen noodles.  This did not technically violate any of the rules of we set for the club. 
