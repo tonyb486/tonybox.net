@@ -10,7 +10,7 @@
         interesting.</p>
     <h3>Latest Posts:</h3>
     <ul>
-        {{ range .Pages }}
+        {{- range where .Pages ".Params.unlisted" "!=" "true" -}}
         <article>
             <li>{{.Date.Format "2006-01-02"}}: <a href="{{.Permalink}}">{{.Title}}</a></li>
         </article>
