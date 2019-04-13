@@ -1,4 +1,5 @@
 all:
+	rm -rf public
 	hugo --minify
 	git commit -a
 	git push tonybox master
