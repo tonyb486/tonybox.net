@@ -8,6 +8,12 @@ function STLViewer(model, elementID) {
     renderer.setSize(elem.clientWidth, elem.clientHeight);
     elem.appendChild(renderer.domElement);
 
+    if (!WEBGL.isWebGLAvailable()) {
+        var warning = WEBGL.getWebGLErrorMessage();
+        elem.appendChild(warning);
+        return;
+    }
+
     window.addEventListener('resize', function () {
         renderer.setSize(elem.clientWidth, elem.clientHeight);
         camera.aspect = elem.clientWidth / elem.clientHeight;
