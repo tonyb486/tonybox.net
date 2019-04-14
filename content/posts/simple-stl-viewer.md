@@ -8,7 +8,7 @@ downloads: ["stlviewer.tar.gz"]
 
 Here's a simple part that I made in OpenSCAD:
 <div id="model"></div>
-It's meant to be a small hook for a hose, that you can attach to a 2x4.  I haven't 3D printed it yet, so I don't know if it works - but one that that *does* work is the 3D viewer above.  It uses WebGL to render it in your browser, and the three.js library makes it easy to implement.  It's part of my [hugo](https://gohugo.io/) template now, since I'd like to post some of the objects that I make for 3D printing.
+It's meant to be a small hook for a hose, that you can attach to a 2x4.  I haven't 3D printed it yet, so I don't know if it works - but one thing that that *does* work is the 3D viewer above.  It uses WebGL to render it in your browser, and the three.js library makes it easy to implement.  It's part of my [hugo](https://gohugo.io/) template now, since I'd like to post some of the objects that I make for 3D printing.
 
 Here's the code for the initial version, in roughly literate programming style.
 
