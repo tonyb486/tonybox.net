@@ -1,5 +1,6 @@
 all:
 	rm -rf public
+	hugo gen chromastyles --style=friendly > assets/css/syntax.css
 	hugo --minify
 	git commit -a
 	git push tonybox master

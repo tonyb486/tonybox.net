@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 
 <head>
-    {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+    {{ $style := resources.Get "css/syntax.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+
     <script type="text/javascript">
 
         var camera, scene, renderer, controls;

@@ -2,6 +2,7 @@ baseURL = "https://tonybox.net/"
 languageCode = "en-us"
 title = "tonybox.net"
 disqusShortname = "tonybox"
+pygmentsUseClasses = true
 
 [author]
 displayName = "Anthony Biondo"
