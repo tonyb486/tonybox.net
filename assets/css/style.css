@@ -200,7 +200,9 @@ body, main, footer, a {
     transition: 1s ease;
 }
 
+/* fix code blocks */
 body.dark .chroma {
-    background: #555;
+    background: #caca8d;
+    color: black;
     transition: 1s ease;
 }
