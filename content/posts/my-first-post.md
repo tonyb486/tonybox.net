@@ -3,7 +3,10 @@ title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consectetu
 date: 2019-03-23T13:06:15-04:00
 draft: true
 author: tonyb486
+model: "hook.stl"
 ---
+
+<div id="model"></div>
 
 Lorem markdownum arbore laticem ante, sub Ut **spectari** existit, fiet. Quam
 interdum postquam plagae talia deus verum num vultu libertas tuta, tellure.

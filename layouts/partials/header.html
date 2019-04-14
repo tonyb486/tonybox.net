@@ -3,10 +3,18 @@
 <head>
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
     <script type="text/javascript">
+
+        var camera, scene, renderer, controls;
+        var geometry, material, mesh;
+
         window.onload = function () {
             document.body.className = localStorage.getItem("darkmode");
+
+            //{{ if isset .Params "model" }}
+            STLViewer("/models/{{ .Params.model }}", "model")
+            //{{ end }}
         }
         function toggle_darkmode() {
             var newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
@@ -19,6 +27,14 @@
 
         }
     </script>
+    {{ if isset .Params "model" }}
+    <script src="/plugins/stl/three.min.js"></script>
+    <script src="/plugins/stl/stlloader.min.js"></script>
+    <script src="/plugins/stl/orbitcontrols.min.js"></script>
+    <script src="/plugins/stl/stlviewer.js"></script>
+    {{ end }}
+
+
     <title>{{ .Title }}</title>
 </head>
 

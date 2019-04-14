@@ -102,6 +102,11 @@ a#mobilemenu {
     display: none;
 }
 
+div#model {
+    width: 100%;
+    height: 250px;
+}
+
 /* Mobile Site */
 @media (max-width: 900px) {
     body {
@@ -177,6 +182,7 @@ body.dark {
 }
 body.dark main, body.dark nav, body.dark footer {
     color: #efefef;
+    
 }
 
 body.dark a, body.dark main a {

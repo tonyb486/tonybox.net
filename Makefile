@@ -8,4 +8,4 @@ all:
 	rsync -avh --delete public/tags tonybox.net:/srv/www/tonybox/tags
 
 draft:
-	hugo -D server
+	hugo -D --bind 0.0.0.0 server

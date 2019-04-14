@@ -10,6 +10,7 @@
 
             <time>{{ .Date.Format "2006-01-02" }}</time>
 
+            {{ if isset .Params "tags"}}
             <small>
                 Filed under:
                 {{ range .Param "tags" }}
@@ -17,6 +18,16 @@
                 <a href="{{ $tagpage.Permalink }}">{{.}}</a>
                 {{ end }}
             </small>
+            {{ end }}
+
+            {{ if isset .Params "downloads" }}
+            <small>
+                Attachments:
+                {{ range .Param "downloads" }}
+                <a href="/downloads/{{.}}">{{.}}</a>
+                {{ end }}
+            </small>
+            {{ end }}
 
         </header>
         <setion>
