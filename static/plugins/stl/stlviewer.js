@@ -2,17 +2,15 @@
 function STLViewer(model, elementID) {
     elem = document.getElementById(elementID)
 
-    camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
-
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(elem.clientWidth, elem.clientHeight);
-    elem.appendChild(renderer.domElement);
-
     if (!WEBGL.isWebGLAvailable()) {
-        var warning = WEBGL.getWebGLErrorMessage();
-        elem.appendChild(warning);
+        elem.appendChild(WEBGL.getWebGLErrorMessage());
         return;
     }
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
+    renderer.setSize(elem.clientWidth, elem.clientHeight);
+    elem.appendChild(renderer.domElement);
 
     window.addEventListener('resize', function () {
         renderer.setSize(elem.clientWidth, elem.clientHeight);
