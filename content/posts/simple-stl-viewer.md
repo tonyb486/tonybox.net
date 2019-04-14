@@ -144,5 +144,10 @@ window.onload = function() {
 </script>
 {{< / highlight >}}
 
-Please note that this won't work as a local file, since it won't be able to load the stl file.  You'll need to start up a HTTP server. The command ```python2 -m SimpleHTTPServer``` will serve the current directory for development purposes.
+Please note that this won't work as a local file, since it won't be able to load the stl file.  You'll need to start up a HTTP server. 
 
+As a free bonus tip, you can serve the current directory over HTTP with python:
+
+{{< highlight bash>}}
+python2 -m SimpleHTTPServer
+{{< / highlight >}}
