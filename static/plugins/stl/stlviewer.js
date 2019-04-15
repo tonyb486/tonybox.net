@@ -27,10 +27,11 @@ function STLViewer(model, elementID) {
     controls.autoRotateSpeed = .75;
 
     scene = new THREE.Scene();
-    scene.add(new THREE.HemisphereLight(0xffffff, 1.5));
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x080820, 1.5));
+    scene.add(new THREE.AmbientLight(0x404040, 0.5));
 
     (new THREE.STLLoader()).load(model, function (geometry) {
-        material = new THREE.MeshPhongMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
+        material = new THREE.MeshLambertMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
         mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 

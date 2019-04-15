@@ -1,8 +1,10 @@
 ---
 title: "License"
 unlisted: true
+model: "customizable_U_hook_updated.stl"
 ---
 
+<div id="model"></div>
 As explained in the footer, the content of posts on this website are licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a> license, and samples of source code in the posts are licensed under the <a href="https://opensource.org/licenses/MIT">MIT  License</a>:
 
 <small>
