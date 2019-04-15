@@ -2,6 +2,10 @@
 
 <head>
     <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta property="og:image" content="https://tonybox.net/img/fb.jpg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ .Title }}" />
+
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
 
