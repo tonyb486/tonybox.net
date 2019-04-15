@@ -3,6 +3,7 @@ title: "Doctor Who-Style Wi-Fi With Sentient Captive Portal"
 date: 2013-03-31T12:03:00-04:00
 draft: false
 tags: ["Mostly Harmless", "Security", "Linux"]
+description: "Using a captive portal on a fake WiFi network using hostapd to simulate the effect of stealing the user's soal, as in Doctor Who's The Bells of Saint John."
 ---
 
 In this week’s episode of Doctor Who, [The Bells of Saint John](https://en.wikipedia.org/wiki/The_Bells_of_Saint_John), the enemy is sentient and living inside of the wifi - specifically, a wifi network with a name consisting of weird symbols would appear, the target would click on it, and it would infest their computer and eventually consume their soul and consciousness into the cloud.
