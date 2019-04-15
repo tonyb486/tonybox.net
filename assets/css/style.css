@@ -107,7 +107,6 @@ div#model {
 
 td, th { padding: 2px 10px; text-align: left; }
 
-
 /* Mobile Site */
 @media (max-width: 900px) {
     body {
