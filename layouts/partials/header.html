@@ -27,7 +27,7 @@
         });
 
         window.onload = function () {
-
+            document.body.className = localStorage.getItem("darkmode");
             //{{ if isset .Params "model" }}
             STLViewer("/models/{{ .Params.model }}", "model");
             //{{ end }}
