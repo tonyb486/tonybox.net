@@ -155,7 +155,7 @@ div#model {
 
     pre {
         overflow: scroll;
-        white-space: nowrap; 
+        white-space: normal; 
     }
     aside nav div#menu a {
         padding: 0em;
