@@ -107,6 +107,11 @@ div#model {
 
 td, th { padding: 2px 10px; text-align: left; }
 
+/* Big Site */
+@media (min-width: 900px) {
+    pre { white-space: pre-wrap; }
+}
+
 /* Mobile Site */
 @media (max-width: 900px) {
     body {
@@ -139,6 +144,7 @@ td, th { padding: 2px 10px; text-align: left; }
         margin: 0em 4em;
         padding-top: 0em;
     }
+    pre { white-space: pre-wrap; }
 }
 
 /* More mobile site */
