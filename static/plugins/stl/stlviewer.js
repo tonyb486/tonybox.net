@@ -4,7 +4,6 @@ function STLViewerEnable() {
     for (var i = 0; i < models.length; i++) {
         STLViewer(models[i], models[i].getAttribute("data-src"));
     }
-    animate();
 }
 
 function STLViewer(elem, model) {
