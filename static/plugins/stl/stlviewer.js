@@ -1,14 +1,24 @@
 
-function STLViewer(model, elementID) {
-    elem = document.getElementById(elementID)
+var renderers = []
+
+function STLViewerEnable() {
+    var models = document.getElementsByClassName("stlviewer");
+    for (var i = 0; i < models.length; i++) {
+        STLViewer(models[i], models[i].getAttribute("data-src"));
+    }
+    animate();
+}
+
+
+function STLViewer(elem, model) {
 
     if (!WEBGL.isWebGLAvailable()) {
         elem.appendChild(WEBGL.getWebGLErrorMessage());
         return;
     }
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    var camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
     renderer.setSize(elem.clientWidth, elem.clientHeight);
     elem.appendChild(renderer.domElement);
 
@@ -18,7 +28,7 @@ function STLViewer(model, elementID) {
         camera.updateProjectionMatrix();
     }, false);
 
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.rotateSpeed = 0.05;
     controls.dampingFactor = 0.1;
@@ -27,17 +37,17 @@ function STLViewer(model, elementID) {
     controls.autoRotate = true;
     controls.autoRotateSpeed = .75;
 
-    scene = new THREE.Scene();
+    var scene = new THREE.Scene();
     scene.add(new THREE.HemisphereLight(0xffffff, 0x080820, 1.5));
     scene.add(new THREE.AmbientLight(0x404040, 0.5));
 
     (new THREE.STLLoader()).load(model, function (geometry) {
-        material = new THREE.MeshLambertMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
-        mesh = new THREE.Mesh(geometry, material);
+        var material = new THREE.MeshLambertMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
+        var mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 
         // Compute the middle
-        middle = new THREE.Vector3();
+        var middle = new THREE.Vector3();
         geometry.computeBoundingBox();
         geometry.boundingBox.getCenter(middle);
 
@@ -47,14 +57,16 @@ function STLViewer(model, elementID) {
         mesh.position.z = -1 * middle.z;
 
         // Pull the camera away as needed
-        largestDimension = Math.max(geometry.boundingBox.max.x,
+        var largestDimension = Math.max(geometry.boundingBox.max.x,
             geometry.boundingBox.max.y, geometry.boundingBox.max.z)
         camera.position.z = largestDimension * 1.5;
 
-        animate = function () {
+
+        var animate = function () {
             requestAnimationFrame(animate);
             controls.update();
             renderer.render(scene, camera);
         }; animate();
+
     });
 }

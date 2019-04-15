@@ -2,13 +2,14 @@
 title: "A Simple STL Viewer with Three.js"
 date: 2019-04-14
 tags: ["Programming", "3D Models", "Web Dev"]
-model: "hook.stl"
-downloads: ["stlviewer.tar.gz"]
+plugins: ["threejs", "stlviewer"]
+#downloads: ["stlviewer.tar.gz"]
 description: "Implementing a simple WebGL viewer for STL files using Three.JS."
 ---
 
 Here's a simple part that I made in OpenSCAD:
-<div id="model"></div>
+<div class="stlviewer" data-src="/models/hook.stl"></div>
+
 It's meant to be a small hook for a hose, that you can attach to a 2x4.  I haven't 3D printed it yet, so I don't know if it works - but one thing that that *does* work is the 3D viewer above.  It uses WebGL to render it in your browser, and the three.js library makes it easy to implement.  It's part of my [hugo](https://gohugo.io/) template now, since I'd like to post some of the objects that I make for 3D printing.
 
 Here's the code for the initial version, in roughly literate programming style.
@@ -34,20 +35,20 @@ Now we can actually start writing JavaScript.  We'll be defining a simple functi
 
 {{< highlight js>}}
 function STLViewer(model, elementID) {
-    elem = document.getElementById(elementID)
+    var elem = document.getElementById(elementID)
 {{< / highlight >}}
 
 Then, we create the camera using three.js.  We use information about the element's size to determine the aspect ratio, and we use arguments 1 and 1000 to indicate that the camera should clip things closer than 1 unit away and further than 1000 units away.
 
 {{< highlight js>}}
-camera = new THREE.PerspectiveCamera(70, 
+var camera = new THREE.PerspectiveCamera(70, 
     elem.clientWidth/elem.clientHeight, 1, 1000);
 {{< / highlight >}}
 
 Now, we can create the renderer object.  I set alpha to true, so that it would have no background, and just use the page's background.  We also set the size of the renderer to the element's size, and add the renderer's object to our element with addChild.
 
 {{< highlight js>}}
-renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(elem.clientWidth, elem.clientHeight);
 elem.appendChild(renderer.domElement);
 {{< / highlight >}}
@@ -65,7 +66,7 @@ window.addEventListener('resize', function () {
 Next, we'll configure the controls using OrbitControls.
 
 {{< highlight js>}}
-controls = new THREE.OrbitControls(camera, renderer.domElement);
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.rotateSpeed = 0.05;
 controls.dampingFactor = 0.1;
@@ -79,7 +80,7 @@ controls.autoRotateSpeed = .75;
 Finally, we can start to set the scene.  We'll start with some simple lighting - in this case, a hemisphere light from above.  It won't light the bottom of the model, but it is easy enough to add additional lights here if that is an issue.
 
 {{< highlight js>}}
-scene = new THREE.Scene();
+var scene = new THREE.Scene();
 scene.add(new THREE.HemisphereLight(0xffffff, 1.5));
 {{< / highlight >}}
 
@@ -87,11 +88,11 @@ Next, we can load our STL file using three.js's STL loader.  The loader only ret
 
 {{< highlight js>}}
 (new THREE.STLLoader()).load(model, function (geometry) {
-    material = new THREE.MeshPhongMaterial({ 
+    var material = new THREE.MeshPhongMaterial({ 
         color: 0xff5533, 
         specular: 100, 
         shininess: 100 });
-    mesh = new THREE.Mesh(geometry, material);
+    var mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 {{< / highlight >}}
 
@@ -100,7 +101,7 @@ Next, we can load our STL file using three.js's STL loader.  The loader only ret
 Now our mesh is loaded, but we need to figure out a way to center it.  I used three.js's computeBoundingBox and getCenter helper functions to find the center of the mesh's bounding box, and then just translated it's position there:
 
 {{< highlight js>}}
-middle = new THREE.Vector3();
+var middle = new THREE.Vector3();
 geometry.computeBoundingBox();
 geometry.boundingBox.getCenter(middle);
 mesh.position.x = -1 * middle.x;
@@ -111,7 +112,7 @@ mesh.position.z = -1 * middle.z;
 We also want to pull the camera away so that it is a reasonable size.  Again I used the element's bounding box, picked the largest dimension, and pulled the camera away by 1.5 times that.  This may not be ideal, but it seems to work well enough so far.
 
 {{< highlight js>}}
-largestDimension = Math.max(geometry.boundingBox.max.x,
+var largestDimension = Math.max(geometry.boundingBox.max.x,
                             geometry.boundingBox.max.y, 
                             geometry.boundingBox.max.z)
 camera.position.z = largestDimension * 1.5;
@@ -120,7 +121,7 @@ camera.position.z = largestDimension * 1.5;
 Now we animate it, by creating a callback function (in our closure) for three.js to repeatedly call.  The callback function updates the scene (in this case, just calling the control's update function) and tells three.js to render it.
 
 {{< highlight js>}}
-animate = function () {
+var animate = function () {
     requestAnimationFrame(animate);
     controls.update();
     renderer.render(scene, camera);

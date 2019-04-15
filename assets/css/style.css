@@ -100,7 +100,7 @@ a#mobilemenu {
     display: none;
 }
 
-div#model {
+div.stlviewer {
     width: 100%;
     height: 250px;
 }

@@ -26,9 +26,9 @@
             document.body.className = localStorage.getItem("darkmode");
         });
 
-        //{{ if isset .Params "model" }}
+        //{{ if in .Params.plugins "stlviewer" }}
         window.onload = function () {
-            STLViewer("/models/{{ .Params.model }}", "model");
+            STLViewerEnable();
         }
         //{{ end }}
 
@@ -43,14 +43,17 @@
 
         }
     </script>
-    {{ if isset .Params "model" }}
+
+    {{ if in .Params.plugins "threejs" }}
     <script src="/plugins/stl/webgl.min.js"></script>
     <script src="/plugins/stl/three.min.js"></script>
     <script src="/plugins/stl/stlloader.min.js"></script>
     <script src="/plugins/stl/orbitcontrols.min.js"></script>
-    <script src="/plugins/stl/stlviewer.js"></script>
     {{ end }}
 
+    {{ if in .Params.plugins "stlviewer" }}
+    <script src="/plugins/stl/stlviewer.js"></script>
+    {{ end }}
 
     <title>{{ .Title }}</title>
 </head>
