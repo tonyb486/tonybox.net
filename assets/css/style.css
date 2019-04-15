@@ -181,24 +181,24 @@ td, th { padding: 2px 10px; text-align: left; }
 
 /* Dark Mode */
 
-body.dark { 
+html.dark { 
     background: #222; 
     color: #efefef;
 }
-body.dark main, body.dark nav, body.dark footer {
+html.dark main, html.dark nav, html.dark footer {
     color: #efefef;
     
 }
 
-body.dark a, body.dark main a {
+html.dark a, html.dark main a {
      color: rgb(100, 206, 68); 
 }
 
-body.dark nav a, body.dark footer a, body.dark h1 a, body.dark h2 a {
+html.dark nav a, html.dark footer a, html.dark h1 a, html.dark h2 a {
     color: #efefef;
 }
 
-body.dark #disqus_thread {
+html.dark #disqus_thread {
     color: #efefef;
 }
 
