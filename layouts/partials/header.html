@@ -5,6 +5,11 @@
     <meta property="og:image" content="https://tonybox.net/img/fb.jpg" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    {{ if isset .Params "description" }}
+    <meta property="og:description" content="{{ .Params.description }}" />
+    {{ end }}
+
 
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}">
