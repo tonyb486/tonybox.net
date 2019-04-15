@@ -1,7 +1,7 @@
 ---
 title: "A Simple STL Viewer with Three.js"
 date: 2019-04-14
-tags: ["Programming", "3D Models"]
+tags: ["Programming", "3D Models", "Web Dev"]
 model: "hook.stl"
 downloads: ["stlviewer.tar.gz"]
 description: "Implementing a simple WebGL viewer for STL files using Three.JS."
