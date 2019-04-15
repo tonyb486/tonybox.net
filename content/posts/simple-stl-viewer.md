@@ -67,9 +67,11 @@ Next, we'll configure the controls using OrbitControls.
 {{< highlight js>}}
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
-controls.dampingFactor = 0.25;
+controls.rotateSpeed = 0.05;
+controls.dampingFactor = 0.1;
 controls.enableZoom = true;
 controls.autoRotate = true;
+controls.autoRotateSpeed = .75;
 {{< / highlight >}}
 
 ### Setting the Scene
