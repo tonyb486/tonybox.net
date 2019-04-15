@@ -29,6 +29,7 @@
             var newCookie = document.cookie == "cs=dark" ? "cs=light" : "cs=dark";
             var newColor = document.cookie == "cs=dark" ? "light" : "dark";
             document.cookie = newCookie;
+            console.log(newCookie)
             document.documentElement.className = newColor;
         }
         function toggle_menu() {
