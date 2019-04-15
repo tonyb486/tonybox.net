@@ -26,10 +26,12 @@
             //{{ end }}
         }
         function toggle_darkmode() {
+            if (document.cookie != "cs=dark" && document.cookie != "cs=light") {
+                document.cookie = ""
+            }
             var newCookie = document.cookie == "cs=dark" ? "cs=light" : "cs=dark";
             var newColor = document.cookie == "cs=dark" ? "light" : "dark";
             document.cookie = newCookie;
-            console.log(newCookie)
             document.documentElement.className = newColor;
         }
         function toggle_menu() {
