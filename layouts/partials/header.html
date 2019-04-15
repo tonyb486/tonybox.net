@@ -21,16 +21,15 @@
     <script type="text/javascript">
 
         window.onload = function () {
-            document.body.className = localStorage.getItem("darkmode");
-
             //{{ if isset .Params "model" }}
             STLViewer("/models/{{ .Params.model }}", "model");
             //{{ end }}
         }
         function toggle_darkmode() {
-            var newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
-            localStorage.setItem("darkmode", newColor);
-            document.body.className = newColor;
+            var newCookie = document.cookie == "cs=dark" ? "cs=light" : "cs=dark";
+            var newColor = document.cookie == "cs=dark" ? "light" : "dark";
+            document.cookie = newCookie;
+            document.documentElement.className = newColor;
         }
         function toggle_menu() {
             var menu = document.getElementById("menu");
