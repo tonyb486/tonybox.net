@@ -52,5 +52,5 @@
     <title>{{ .Title }}</title>
 </head>
 
-<body>
+<body class="{{"<!--#include virtual='/colorScheme' -->" | safeHTML}}">
     {{ partial "menu.html" . }}
