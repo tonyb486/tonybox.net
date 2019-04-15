@@ -181,7 +181,7 @@ td, th { padding: 2px 10px; text-align: left; }
 
 /* Dark Mode */
 
-html.dark { 
+html.dark, html.dark body{ 
     background: #222; 
     color: #efefef;
 }
