@@ -39,7 +39,7 @@ function STLViewer(elem, model) {
     scene.add(new THREE.AmbientLight(0x404040, 0.5));
 
     (new THREE.STLLoader()).load(model, function (geometry) {
-        var material = new THREE.MeshLambertMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
+        var material = new THREE.MeshPhongMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
         var mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 
