@@ -9,6 +9,7 @@
     <meta property="og:updated_time" content="{{.Date.Format "2006-01-02"}}" />
     {{ if isset .Params "description" }}
     <meta property="og:description" content="{{ .Params.description }}" />
+    <meta name="description" content="{{ .Params.description }}" />
     {{ end }}
 
 
