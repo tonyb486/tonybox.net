@@ -20,7 +20,8 @@ function STLViewer(model, elementID) {
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.25;
+    controls.rotateSpeed = 0.1;
+    controls.dampingFactor = 0.1;
     controls.enableZoom = true;
     controls.autoRotate = true;
 
