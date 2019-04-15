@@ -1,6 +1,4 @@
 
-var renderers = []
-
 function STLViewerEnable() {
     var models = document.getElementsByClassName("stlviewer");
     for (var i = 0; i < models.length; i++) {
@@ -8,7 +6,6 @@ function STLViewerEnable() {
     }
     animate();
 }
-
 
 function STLViewer(elem, model) {
 
