@@ -80,7 +80,6 @@ small {
 pre {
     font-size: 10pt;
     padding: 1em;
-    white-space:pre-wrap;
 }   
 
 li {
@@ -155,7 +154,6 @@ div#model {
 
     pre {
         overflow: scroll;
-        white-space: normal; 
     }
     aside nav div#menu a {
         padding: 0em;
