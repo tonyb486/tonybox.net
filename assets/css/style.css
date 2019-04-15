@@ -202,13 +202,6 @@ body.dark #disqus_thread {
     color: #efefef;
 }
 
-body, main, footer, a {
-    transition: 1s ease;
-}
-
-/* fix code blocks */
-body.dark .chroma {
-    background: #caca8d;
-    color: black;
+body, main, footer, a, span.chroma, .chroma, pre {
     transition: 1s ease;
 }
