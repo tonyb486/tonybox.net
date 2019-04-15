@@ -24,6 +24,8 @@ function STLViewer(model, elementID) {
     controls.dampingFactor = 0.1;
     controls.enableZoom = true;
     controls.autoRotate = true;
+    controls.autoRotateSpeed = .75;
+
 
     scene = new THREE.Scene();
     scene.add(new THREE.HemisphereLight(0xffffff, 1.5));
