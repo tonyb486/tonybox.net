@@ -5,10 +5,11 @@
         <header>
             <h1>{{ .Title }}</h1>
 
+
+            {{ if isset .Params "date"}}
             <address>Anthony Biondo</address>
-
-
             <time>{{ .Date.Format "2006-01-02" }}</time>
+            {{ end }}
 
             {{ if isset .Params "tags"}}
             <small>

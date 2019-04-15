@@ -1,6 +1,5 @@
 ---
 title: "License"
-date: 2019-04-14
 unlisted: true
 ---
 
