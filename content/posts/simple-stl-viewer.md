@@ -4,6 +4,7 @@ date: 2019-04-14
 tags: ["Programming", "3D Models"]
 model: "hook.stl"
 downloads: ["stlviewer.tar.gz"]
+description: "Implementing a simple WebGL viewer for STL files using Three.JS."
 ---
 
 Here's a simple part that I made in OpenSCAD:
