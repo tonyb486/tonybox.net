@@ -1,6 +1,6 @@
 
-function STLViewerEnable() {
-    var models = document.getElementsByClassName("stlviewer");
+function STLViewerEnable(classname) {
+    var models = document.getElementsByClassName(classname);
     for (var i = 0; i < models.length; i++) {
         STLViewer(models[i], models[i].getAttribute("data-src"));
     }
@@ -34,8 +34,8 @@ function STLViewer(elem, model) {
     controls.autoRotateSpeed = .75;
 
     var scene = new THREE.Scene();
+
     scene.add(new THREE.HemisphereLight(0xffffff, 0x080820, 1.5));
-    scene.add(new THREE.AmbientLight(0x404040, 0.5));
 
     (new THREE.STLLoader()).load(model, function (geometry) {
         var material = new THREE.MeshPhongMaterial({ color: 0xff5533, specular: 100, shininess: 100 });
