@@ -1,5 +1,5 @@
 ---
-title: "Controlling a Treadmill with a Headphone Cable and WebAudio"
+title: "Controlling a Treadmill with a Headphone Cable"
 date: 2019-04-18
 draft: true
 tags: ["Programming", "Web Dev"]
@@ -33,6 +33,10 @@ The treadmill responds to bursts of audio that contain a digital signal which is
 **TODO: Diagram**
 
 The modulation scheme here only has two levels: a 2000 Hz sine wave at full amplitude is a 1, and silence is a 0.   You can see what that looks like below, and you can get an idea for this by opening an iFit CD using Audacity.  
+
+## Representing an audio wave digitally with PCM
+
+**TODO: Lolipop Diagram**
 
 ## Generating tones with WebAudio
 
