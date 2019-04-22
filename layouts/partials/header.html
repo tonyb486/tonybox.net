@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
+<html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width" />
     <meta property="og:image" content="https://tonybox.net/img/fb.jpg" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ .Title }}" />
@@ -10,6 +12,8 @@
     {{ if isset .Params "description" }}
     <meta property="og:description" content="{{ .Params.description }}" />
     <meta name="description" content="{{ .Params.description }}" />
+    {{ else if .IsHome }}
+    <meta name="description" content="{{ .Site.Params.Description }}" />
     {{ end }}
 
 

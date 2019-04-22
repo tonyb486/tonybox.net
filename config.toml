@@ -4,5 +4,6 @@ title = "tonybox.net"
 disqusShortname = "tonybox"
 pygmentsUseClasses = true
 
-[author]
-displayName = "Anthony Biondo"
+[params]
+   author = "Anthony Biondo"
+   description = "Anthony Biondo is a tech lawyer in NYC, who sometimes writes about technology, security, and maybe even the law."
