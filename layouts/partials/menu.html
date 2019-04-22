@@ -1,9 +1,15 @@
 <aside id="sidebar">
     <nav>
-        <img src="https://tonybox.net/img/me.jpg" class="round">
+
+        <picture class="round">
+            <source srcset="/img/me.webp" type="image/webp">
+            <source srcset="/img/me.jpg" type="image/jpeg">
+            <img src="/img/me.jpg" class="round">
+        </picture>
+
         <div id="links">
             <a href="#" onclick="toggle_menu()" id="mobilemenu">☰</a>
-            <a href="/"><strong>tonybox.net</strong></a>
+            <a href="/"><strong>{{ .Site.Title }}</strong></a>
             <div id="menu" class="hidden">
                 <br />
                 <a href="/posts">posts</a>

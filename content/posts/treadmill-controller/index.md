@@ -30,7 +30,7 @@ When I made the first version of this project, it was during the all-too-brief p
 
 The treadmill responds to bursts of audio that contain a digital signal which is modulated using [amplitude shift keying](https://en.wikipedia.org/wiki/Amplitude-shift_keying) on a 2000 Hz sine wave carrier.  Don't be frightened, this is an extremely simple modulation scheme, so simple that we can easily generate PCM samples for it ourselves, and I'll have plenty of diagrams to explain it.  
 
-**TODO: Diagram**
+{{% image "img/ask.svg"  %}}
 
 The modulation scheme here only has two levels: a 2000 Hz sine wave at full amplitude is a 1, and silence is a 0.   You can see what that looks like below, and you can get an idea for this by opening an iFit CD using Audacity.  
 

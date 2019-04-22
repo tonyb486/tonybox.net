@@ -43,7 +43,7 @@ nav a {
     font-size: 16pt;
 }
 
-nav img.round {
+nav img.round, nav picture.round {
     border-radius: 50%;
     width: 120px;
     align-self: center;
