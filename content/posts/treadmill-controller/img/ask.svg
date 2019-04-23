@@ -757,11 +757,11 @@
      y="76.82518"
      x="260.52194"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:lato;-inkscape-font-specification:lato;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     xml:space="preserve"><tspan
+     xml:space="preserve"><tspan class="figtext"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:lato;-inkscape-font-specification:lato;text-align:center;text-anchor:middle"
        id="tspan1975"
        y="76.82518"
-       x="260.52194">Speed = 35</tspan><tspan
+       x="260.52194">Speed = 35</tspan><tspan class="figtext"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:lato;-inkscape-font-specification:lato;text-align:center;text-anchor:middle"
        id="tspan1987"
        y="126.82518"
@@ -771,11 +771,11 @@
      y="78.348618"
      x="777.54559"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:lato;-inkscape-font-specification:lato;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     xml:space="preserve"><tspan
+     xml:space="preserve"><tspan class="figtext"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:lato;-inkscape-font-specification:lato;text-align:center;text-anchor:middle"
        id="tspan1979"
        y="78.348618"
-       x="777.54559">Incline = 40</tspan><tspan
+       x="777.54559">Incline = 40</tspan><tspan class="figtext"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:lato;-inkscape-font-specification:lato;text-align:center;text-anchor:middle"
        id="tspan1985"
        y="128.34862"
@@ -785,11 +785,11 @@
      y="78.348618"
      x="1296.2686"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:lato;-inkscape-font-specification:lato;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     xml:space="preserve"><tspan
+     xml:space="preserve"><tspan class="figtext"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:lato;-inkscape-font-specification:lato;text-align:center;text-anchor:middle"
        y="78.348618"
        x="1301.3857"
-       id="tspan1902-0-7">Checksum = 75 </tspan><tspan
+       id="tspan1902-0-7">Checksum = 75 </tspan><tspan class="figtext"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:lato;-inkscape-font-specification:lato;text-align:center;text-anchor:middle"
        id="tspan1983"
        y="128.34862"

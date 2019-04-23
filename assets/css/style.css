@@ -213,8 +213,6 @@ body, main, footer, a, span.chroma, .chroma, pre {
     transition: 1s ease;
 }
 
-body.dark svg {
-    background: #f6f6ef;
-    padding: 2.5%;
-    width: 95%;
+body.dark .figtext {
+    fill: white;
 }
