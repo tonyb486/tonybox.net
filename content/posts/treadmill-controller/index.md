@@ -35,18 +35,17 @@ I can't find much evidence of the older version  being a colossal success, but I
 
 ## How does the signal work?
 
-You can hear one of the tones here from the CD's audio track:
+You can hear one of the bursts here from the CD's audio track:
 
 {{% audio "aud/sample-tone.mp3" %}}
 
-Did you hear it in the middle?  It sounds like two quick and incredibly short bursts of static.  They're actually bursts of audio that contain a digital signal which is modulated using [amplitude shift keying](https://en.wikipedia.org/wiki/Amplitude-shift_keying).  This is a very simple way to encode data into an audio signal - it works kind of like morse code, except with 0s and 1s representing integers instead of letters, and done much faster.  The carrier wave, in this case a 2000 Hz sine wave, at full amplitude for a period of time represents a 1, and silence for an equal period of time represents a 0. 
+Did you hear it in the middle?  It sounds like two quick, very short, bursts of static.  They're actually bursts of a wave that contain a digital signal which is modulated using [amplitude shift keying](https://en.wikipedia.org/wiki/Amplitude-shift_keying).  This is a very simple way to encode data into an audio signal - it works kind of like morse code, except with 0s and 1s in place of dots and dashes, and done much faster than can be perceived by the human ear.  The carrier wave, in this case a 2000 Hz sine wave, at full amplitude for a period of time represents a 1, and silence for an equal period of time represents a 0, and a set of them in a row represents an integer. 
 
-To illustrate this, I took the burst, rendered the waveform with Audacity, and annotated it to show the different components of the signal.  You can see the binary data in the bursts match up to the instructor's description of what the treadmill will do when it detects the tone:
+To illustrate this, I clipped the burst in [audacity](https://www.audacityteam.org/), rendered the waveform with a tool called [wave2vec](https://github.com/cristoper/wav2vec), and annotated it with [inkscape](https://inkscape.org/) to show the different components of the signal.  You can clearly see the binary data in the bursts form 0s and 1s, and if you decode this binary to their integer values, it matches up with the instructor's description of what the treadmill will do:
 
-{{% image "img/ask.png"  %}}
+{{% svg "img/ask.svg"  %}}
 
-As shown above, the signal uses a 2000 Hz sine wave as the carrier.  Thus, a 2000 Hz sine tone represents a 1, and silence represents a zero.  The bursts are repeated twice (only one is shown), and contain 30 bits of information that make up the speed, the incline level, and a checksum that is the sum of these two values.  These 8-bit values are transmitted in binary LSB-first (so, backwards), and separated by a 0 and 1 marker, which I suspect may be used for timing.  
-
+As shown above, the signal uses a 2000 Hz sine wave as the carrier - the tone represents a 1, and silence represents a zero.  The bursts are repeated twice (only one is shown), and contain 30 bits of information that make up the speed for the treadmill, the incline level for it, and a checksum that is the sum of these two values.  These 8-bit values are transmitted in binary LSB-first (so, backwards), and separated by a 01 marker (shown in yellow), which I suspect may be used for timing.  
 
 
 
