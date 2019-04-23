@@ -212,3 +212,10 @@ body.dark img.figure {
 body, main, footer, a, span.chroma, .chroma, pre {
     transition: 1s ease;
 }
+
+/* Old browsers */
+
+/* Just hide the dang image in <ie8 */
+html.oldbrowser img.round {
+    display: none;
+}
