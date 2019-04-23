@@ -9,12 +9,7 @@ description: "Using a captive portal on a fake WiFi network using hostapd to sim
 In this week’s episode of Doctor Who, [The Bells of Saint John](https://en.wikipedia.org/wiki/The_Bells_of_Saint_John), the enemy is sentient and living inside of the wifi - specifically, a wifi network with a name consisting of weird symbols would appear, the target would click on it, and it would infest their computer and eventually consume their soul and consciousness into the cloud.
  <!--more-->
 
-<video width="100%" controls>
-    <source src="/vid/doctor-who-wifi.webm" 
-        type='video/webm;codecs="vp9,opus"'>
-    <source src="/vid/doctor-who-wifi.mp4" 
-        type='video/mp4'>
-</video>
+{{% video webm="vid/soultheif.webm" mp4="vid/soultheif.mp4" %}}
 
 ## How Does It Work?
 

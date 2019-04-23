@@ -112,6 +112,7 @@ td, th { padding: 2px 10px; text-align: left; }
 /* Big Site */
 @media (min-width: 600px) {
     pre { white-space: pre-wrap; }
+    video { width: 80%; padding: 0px 10%;}
 }
 
 /* Mobile Site */
@@ -202,6 +203,10 @@ body.dark nav a, body.dark footer a, body.dark h1 a, body.dark h2 a {
 
 body.dark #disqus_thread {
     color: #efefef;
+}
+
+body.dark img.figure {
+    background: white;
 }
 
 body, main, footer, a, span.chroma, .chroma, pre {

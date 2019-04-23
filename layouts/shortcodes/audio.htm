@@ -1,0 +1,5 @@
+{{ $img := .Page.Resources.GetMatch (.Get 0) }}
+
+<audio style="width: 100%" controls>
+    <source src="{{ $img.RelPermalink }}" type="audio/mpeg">
+</audio>
