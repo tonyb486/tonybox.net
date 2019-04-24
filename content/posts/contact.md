@@ -7,7 +7,7 @@ unlisted: true
 
 Method      | Link
 ------------|-------------------------------------------------
-Email       | [tonyb@tonybox.net](mailto:tonyb@tonybox.net)
+Email       | [me@tonybox.net](mailto:me@tonybox.net)
 PGP Key     | [3278 30D2 EEC5 65D5](/pgp.asc)
 Phone       | [+1 347 708 6692](tel:13477086692)
 Keybase     | [tonyb486](https://keybase.io/tonyb486)
