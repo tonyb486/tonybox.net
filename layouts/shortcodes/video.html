@@ -1,18 +1,17 @@
 {{ if isset $.Params "poster"}}
 {{ $poster := .Page.Resources.GetMatch $.Params.poster }}
 <video width="100%" controls poster="{{ $poster.RelPermalink }}">
-    {{ else }}
-    <video width="100%" controls>
-        {{ end }}
+{{ else }}
+<video width="100%" controls>
+{{ end }}
 
-        {{ if isset $.Params "webm"}}
-        {{ $vid := .Page.Resources.GetMatch $.Params.webm }}
-        <source src="{{ $vid.RelPermalink }}" type='video/webm;codecs="vp9,opus"'>
-        {{ end }}
+{{ if isset $.Params "webm"}}
+{{ $vid := .Page.Resources.GetMatch $.Params.webm }}
+<source src="{{ $vid.RelPermalink }}" type='video/webm;codecs="vp9,opus"'>
+{{ end }}
 
-        {{ if isset $.Params "mp4"}}
-        {{ $vid := .Page.Resources.GetMatch $.Params.mp4 }}
-        <source src="{{ $vid.RelPermalink }}" type='video/mp4'>
-        {{ end }}
-
-    </video>
+{{ if isset $.Params "mp4"}}
+{{ $vid := .Page.Resources.GetMatch $.Params.mp4 }}
+<source src="{{ $vid.RelPermalink }}" type='video/mp4'>
+{{ end }}
+</video>
