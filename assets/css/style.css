@@ -201,10 +201,6 @@ body.dark nav a, body.dark footer a, body.dark h1 a, body.dark h2 a {
     color: #efefef;
 }
 
-body.dark #disqus_thread {
-    color: #efefef;
-}
-
 body.dark img.figure {
     background: white;
 }

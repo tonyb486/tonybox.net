@@ -23,8 +23,21 @@
     {{ $style := resources.Get "css/syntax.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
 
     <script type="text/javascript">
+
+        (function (f, a, t, h, o, m) {
+            a[h] = a[h] || function () {
+                (a[h].q = a[h].q || []).push(arguments)
+            };
+            o = f.createElement('script'),
+                m = f.getElementsByTagName('script')[0];
+            o.async = 1; o.src = t; o.id = 'fathom-script';
+            m.parentNode.insertBefore(o, m)
+        })(document, window, '//notebook.tonybox.net/tracker.js', 'fathom');
+        fathom('set', 'siteId', 'LSKXI');
+        fathom('trackPageview');
 
         document.addEventListener('DOMContentLoaded', function () {
             document.body.className = localStorage.getItem("darkmode");
