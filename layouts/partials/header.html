@@ -27,12 +27,9 @@
     <meta name="description" content="{{ .Site.Params.Description }}" />
     {{ end }}
 
-
-
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-
     <script type="text/javascript">
 
+        // Fathom - simple website analytics - https://github.com/usefathom/fathom
         (function (f, a, t, h, o, m) {
             a[h] = a[h] || function () {
                 (a[h].q = a[h].q || []).push(arguments)
@@ -45,21 +42,25 @@
         fathom('set', 'siteId', 'LSKXI');
         fathom('trackPageview');
 
-        document.addEventListener('DOMContentLoaded', function () {
-            document.body.className = localStorage.getItem("darkmode");
-        });
-
         //{{ if in .Params.plugins "stlviewer" }}
         window.onload = function () {
             STLViewerEnable("stlviewer");
         }
         //{{ end }}
 
+
+        // Dark Mode
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.className = localStorage.getItem("darkmode");
+        });
+
         function toggle_darkmode() {
             var newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
             localStorage.setItem("darkmode", newColor);
             document.body.className = newColor;
         }
+
+        // Menu Toggle for Mobile
         function toggle_menu() {
             var menu = document.getElementById("menu");
             menu.className = (menu.className == "hidden") ? "shown" : "hidden"
