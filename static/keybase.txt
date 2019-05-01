@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/tonyb486
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tonybox.net
+  * I am tonyb486 (https://keybase.io/tonyb486) on keybase.
+  * I have a public key ASBWtQkv1YBdvUhCiRgBaMfttUZgH2v738A1ULoi5_t8zQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012056b5092fd5805dbd484289180168c7edb546601f6bfbdfc03550ba22e7fb7ccd0a",
+      "host": "keybase.io",
+      "kid": "012056b5092fd5805dbd484289180168c7edb546601f6bfbdfc03550ba22e7fb7ccd0a",
+      "uid": "839a171a8c1d706898e0a1a9529eea19",
+      "username": "tonyb486"
+    },
+    "merkle_root": {
+      "ctime": 1512574182,
+      "hash": "11ff40f448d45d66c3e754dd62f09b7c3bbb792709cf05dcdc991aa4869233ed82bf8d09f3aa4b417fc46574caa612749b13062e49f0cce29e692281e6ada91a",
+      "hash_meta": "fc1b40bb993eadd45f5c0c70368f1051e14bc7a9b1de150abe9b336d02fb399d",
+      "seqno": 1784525
+    },
+    "service": {
+      "hostname": "tonybox.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.36"
+  },
+  "ctime": 1512574195,
+  "expire_in": 504576000,
+  "prev": "7d39bca8f999e3c85c279861a0339cc6b566c18c4f1f0f0a525c498324903399",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgVrUJL9WAXb1IQokYAWjH7bVGYB9r+9/ANVC6Iuf7fM0Kp3BheWxvYWTFA0R7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNTZiNTA5MmZkNTgwNWRiZDQ4NDI4OTE4MDE2OGM3ZWRiNTQ2NjAxZjZiZmJkZmMwMzU1MGJhMjJlN2ZiN2NjZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNTZiNTA5MmZkNTgwNWRiZDQ4NDI4OTE4MDE2OGM3ZWRiNTQ2NjAxZjZiZmJkZmMwMzU1MGJhMjJlN2ZiN2NjZDBhIiwidWlkIjoiODM5YTE3MWE4YzFkNzA2ODk4ZTBhMWE5NTI5ZWVhMTkiLCJ1c2VybmFtZSI6InRvbnliNDg2In0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTEyNTc0MTgyLCJoYXNoIjoiMTFmZjQwZjQ0OGQ0NWQ2NmMzZTc1NGRkNjJmMDliN2MzYmJiNzkyNzA5Y2YwNWRjZGM5OTFhYTQ4NjkyMzNlZDgyYmY4ZDA5ZjNhYTRiNDE3ZmM0NjU3NGNhYTYxMjc0OWIxMzA2MmU0OWYwY2NlMjllNjkyMjgxZTZhZGE5MWEiLCJoYXNoX21ldGEiOiJmYzFiNDBiYjk5M2VhZGQ0NWY1YzBjNzAzNjhmMTA1MWUxNGJjN2E5YjFkZTE1MGFiZTliMzM2ZDAyZmIzOTlkIiwic2Vxbm8iOjE3ODQ1MjV9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoidG9ueWJveC5uZXQiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zNiJ9LCJjdGltZSI6MTUxMjU3NDE5NSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI3ZDM5YmNhOGY5OTllM2M4NWMyNzk4NjFhMDMzOWNjNmI1NjZjMThjNGYxZjBmMGE1MjVjNDk4MzI0OTAzMzk5Iiwic2Vxbm8iOjEyLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQLVa/GSmKbC4IQaofmsTyhBu6Oh4v3kXK/iyzQx8eb5tRBB71gNzyN/vV6tmPUfVnnt4GhdxJS7Z/fU1VcxbGA2oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCBMriisC2U7Nkq8sUr8OdFDJfsoA/QbF5A+XQ9Udaa+FaN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tonyb486
+
+==================================================================

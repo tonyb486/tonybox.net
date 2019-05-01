@@ -15,17 +15,18 @@
     <meta name="msapplication-TileColor" content="#5bbad5">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width" />
+    {{ if isset .Params "description" }}
+    <meta name="description" content="{{ .Params.description }}" />
+    <meta property="og:description" content="{{ .Params.description }}" />
+    {{ else if .IsHome }}
+    <meta name="description" content="{{ .Site.Params.Description }}" />
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    {{ end }}
     <meta property="og:image" content="https://tonybox.net/img/fb.jpg" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ .Title }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
     <meta property="og:updated_time" content="{{.Date.Format "2006-01-02"}}" />
-    {{ if isset .Params "description" }}
-    <meta property="og:description" content="{{ .Params.description }}" />
-    <meta name="description" content="{{ .Params.description }}" />
-    {{ else if .IsHome }}
-    <meta name="description" content="{{ .Site.Params.Description }}" />
-    {{ end }}
 
     <script type="text/javascript">
 
