@@ -4,3 +4,16 @@ Disallow: /
 {{range .Pages}}
 Allow: {{.RelPermalink}}$
 {{end}}
+
+Allow: /img/
+
+Allow: /fonts/
+
+Allow: /css/
+
+Allow: /models/
+
+Allow: /plugins/
+
+Allow: /keybase.txt
+
