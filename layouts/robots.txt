@@ -1,19 +1,17 @@
 User-agent: *
 
+# Whitelist only
 Disallow: /
-{{range .Pages}}
-Allow: {{.RelPermalink}}$
+
+# Basic pages
+{{range .Pages}}Allow: {{.RelPermalink}}$
 {{end}}
 
+# Static resources
 Allow: /img/
-
 Allow: /fonts/
-
 Allow: /css/
-
 Allow: /models/
-
 Allow: /plugins/
-
 Allow: /keybase.txt
 
