@@ -21,7 +21,9 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>
-      {{ .Content | html }}</description>
+      {{ .Content | html }}
+      {{ partial "footer.html" . | html }}
+      </description>
     </item>
     {{ end }}
   </channel>
