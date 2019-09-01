@@ -10,8 +10,10 @@
         interesting.</p>
     <h3>Latest Posts:</h3>
     <ul>
-        {{- range where .Pages ".Params.unlisted" "!=" "true" -}}
+        {{- range where .Site.RegularPages  ".Params.unlisted" "!=" "true" -}}
+
         <li>{{.Date.Format "2006-01-02"}}: <a href="{{.RelPermalink}}">{{.Title}}</a></li>
+
         {{ end }}
     </ul>
     {{ partial "footer.html" . }}
