@@ -21,8 +21,10 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>
-      {{ .Content | html }}
-      {{ partial "footer.html" . | html }}
+        {{ .Content | html }}
+        {{ printf "<div style=\"font-size: 8pt\">" | html }}
+        {{ partial "footer.html" . | html }}
+        {{ printf "</div>" | html }}
       </description>
     </item>
     {{ end }}
