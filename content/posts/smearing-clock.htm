@@ -1,12 +1,13 @@
 ---
-title: "XKCD Smearing Clock"
+title: "An xkcd Smearing Clock"
 date: 2020-02-11
 tags: ["Humor"]
-draft: true
+draft: false
+summary: "Are you tired of your clock assuming that February 29 exists sometimes? Look no further, this clock is set to go 3.4% slower in Feburary during leap years, so that the 29th doesn't exist!"
 ---
 
 <script type="text/javascript">
-    var febTime, marTime, correctionFactor
+    var febTime, marTime, correctionFactor, lastCorrectedTime
 
     function initClock() {
         year = new Date().getFullYear()
@@ -17,33 +18,36 @@ draft: true
         correctionFactor = realLength/febLength
 
         explanation = ""
-        explanation += "In your time zone, February began at "+Math.floor(febTime/1000)+", unix time.<br />"
-        explanation += "In your time zone, February ends at "+Math.floor(marTime/1000)+", unix time.<br />"
-        explanation += "February is "+Math.floor(febLength/1000)+" seconds ("+febLength/1000/60/60/24+" days) long this year."+"<br />"
-        explanation += "Were it not a leap year, it would be "+realLength/1000+" seconds long (28 days)"+"<br />"
-        explanation += "We can correct for this by cramming these days into "+Math.floor(febLength/1000)+" seconds."+"<br />"
-        explanation += "To do that, we note that February is ~"+((1-correctionFactor)*100).toFixed(5)+"% longer this year."+"<br />"
+        explanation += "<li>In your time zone, February began at "+Math.floor(febTime/1000)+", unix time.</li>"
+        explanation += "<li>In your time zone, February ends at "+Math.floor(marTime/1000)+", unix time.</li>"
+        explanation += "<li>February is "+Math.floor(febLength/1000)+" seconds ("+febLength/1000/60/60/24+" days) long this year."+"</li>"
+        explanation += "<li>Were it not a leap year, it would be "+realLength/1000+" seconds long (28 days)."+"</li>"
+        explanation += "<li>We can correct for this by expanding 28 days into "+Math.floor(febLength/1000)+" seconds."+"</li>"
 
         document.getElementById("main_explanation").innerHTML = explanation
 
-        setInterval(computeTime, 1000)
+        computeTime();
+        setInterval(computeTime, 10)
     
     }
     function computeTime() {
         curTime = (new Date()).getTime()
-
         febSince = curTime-febTime
+        correctedTime = new Date(febTime + (febSince*correctionFactor))
+        if(Math.floor(correctedTime/1000) == lastCorrectedTime) return;
+        lastCorrectedTime = Math.floor(correctedTime/1000)
+
         if (curTime > marTime) {
             document.getElementById("current_explanation").innerHTML = "Because it is not Feburary, however, no adjustment is needed."
             document.getElementById("time").innerHTML = "<b>"+(new Date())+"</b>"
         } else {
-            correctedTime = new Date(febTime + (febSince*correctionFactor))
 
             explanation = ""
-            explanation += "To calcululate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time<br />"
-            explanation += "Thus, February began "+Math.floor(febSince/1000)+" seconds ago in your time zone."+"<br />"
-            explanation += "But, if things were going  ~"+((1-correctionFactor)*100).toFixed(5)+"% slower this would be "+Math.floor((febSince*correctionFactor)/1000)+" seconds ago."+"<br />"
-            explanation += "Thus, the corrected time is "+correctedTime+"<br />"
+            explanation += "<li>To calcululate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time.</li>"
+            explanation += "<li>Thus, February began "+Math.floor(febSince/1000)+" seconds ago in your time zone."+"</li>"
+            explanation += "<li>But, if things were going  ~"+((1-correctionFactor)*100).toFixed(5)+"% slower this would be "+Math.floor((febSince*correctionFactor)/1000)+" seconds ago."+"</li>"
+            explanation += "<li>The corrected time is that many seconds since February began, or "+Math.floor(correctedTime.getTime()/1000)+", unix time.</li>"
+            explanation += "<li>In real time, this corresponds to "+correctedTime+".</li>"
 
             document.getElementById("current_explanation").innerHTML = explanation
             document.getElementById("time").innerHTML = "<h3>"+correctedTime+"</h3>"
@@ -54,18 +58,31 @@ draft: true
     window.onload = initClock
 </script>
 
-<div style="margin: 20px auto; max-width: 800px;">
-<center>
+In the current <a href="https://xkcd.com/2266/">xkcd comic</a>, a new method of adjusting for leap years is proposed. Instead of adding on a day called February 29th, we simply make the month of February about 3.4% longer ... by slowing down our clocks by 3.4%.  The clock below implements this, along with an explanation below:
+
+<br /> <br />
+<div style="text-align: center; background:#e0e0d5; padding: 15px">
     The time is now:
     <div id="time"></div>    
     <i>See</i> <a href="https://xkcd.com/2266/">https://xkcd.com/2266/</a>
-    <small>Note: This clock only makes sense in Feburary, duing leap years.</small>
-</center>
-
-<hr>
-<b>Explanation: </b>
-<small>
-<div id="main_explanation"></div>
-<div id="current_explanation"></div>
-</small>
 </div>
+
+<br />
+<b>Explanation: </b>
+
+<small>
+<ul>
+    <span id="main_explanation"></span>
+    <span id="current_explanation"></span>
+</ul>
+</small>
+
+<b>Notes: </b>
+
+<small>
+<ul>
+    <li>The clock only updates on the slower "tick," of about 1.03 seconds, so if you compare this to your watch it should be going slower, and the two should go in and out of phase every ~30 seconds.</li>
+    <li>If you watch the line in the explanation above with the current unix time, it will skip a number every ~30 seconds because it is ticking too slowly.</li>
+    <li>The clock is configured to update internally every 10ms, and though browsers might not keep up with that, it is hopefully reasonably accurate. Rendering should only happen on the slower tick.</li>
+</ul>
+</small>
