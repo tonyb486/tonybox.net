@@ -1,0 +1,71 @@
+---
+title: "XKCD Smearing Clock"
+date: 2020-02-11
+tags: ["Humor"]
+draft: true
+---
+
+<script type="text/javascript">
+    var febTime, marTime, correctionFactor
+
+    function initClock() {
+        year = new Date().getFullYear()
+        febTime = (new Date("02/01/"+year).getTime())
+        marTime = (new Date("03/01/"+year).getTime())
+        var febLength = marTime-febTime
+        var realLength = 28*60*60*24*1000
+        correctionFactor = realLength/febLength
+
+        explanation = ""
+        explanation += "In your time zone, February began at "+Math.floor(febTime/1000)+", unix time.<br />"
+        explanation += "In your time zone, February ends at "+Math.floor(marTime/1000)+", unix time.<br />"
+        explanation += "February is "+Math.floor(febLength/1000)+" seconds ("+febLength/1000/60/60/24+" days) long this year."+"<br />"
+        explanation += "Were it not a leap year, it would be "+realLength/1000+" seconds long (28 days)"+"<br />"
+        explanation += "We can correct for this by cramming these days into "+Math.floor(febLength/1000)+" seconds."+"<br />"
+        explanation += "To do that, we note that February is ~"+((1-correctionFactor)*100).toFixed(5)+"% longer this year."+"<br />"
+
+        document.getElementById("main_explanation").innerHTML = explanation
+
+        setInterval(computeTime, 1000)
+    
+    }
+    function computeTime() {
+        curTime = (new Date()).getTime()
+
+        febSince = curTime-febTime
+        if (curTime > marTime) {
+            document.getElementById("current_explanation").innerHTML = "Because it is not Feburary, however, no adjustment is needed."
+            document.getElementById("time").innerHTML = "<b>"+(new Date())+"</b>"
+        } else {
+            correctedTime = new Date(febTime + (febSince*correctionFactor))
+
+            explanation = ""
+            explanation += "To calcululate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time<br />"
+            explanation += "Thus, February began "+Math.floor(febSince/1000)+" seconds ago in your time zone."+"<br />"
+            explanation += "But, if things were going  ~"+((1-correctionFactor)*100).toFixed(5)+"% slower this would be "+Math.floor((febSince*correctionFactor)/1000)+" seconds ago."+"<br />"
+            explanation += "Thus, the corrected time is "+correctedTime+"<br />"
+
+            document.getElementById("current_explanation").innerHTML = explanation
+            document.getElementById("time").innerHTML = "<h3>"+correctedTime+"</h3>"
+        }
+
+    }
+
+    window.onload = initClock
+</script>
+
+<div style="margin: 20px auto; max-width: 800px;">
+<center>
+    The time is now:
+    <div id="time"></div>    
+    <i>See</i> <a href="https://xkcd.com/2266/">https://xkcd.com/2266/</a>
+    <small>Note: This clock only makes sense in Feburary, duing leap years.</small>
+</center>
+
+<hr>
+<b>Explanation: </b>
+<small>
+<div id="main_explanation"></div>
+<div id="current_explanation"></div>
+</small>
+</div>
