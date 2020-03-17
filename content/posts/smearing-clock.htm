@@ -1,5 +1,5 @@
 ---
-title: "An xkcd Smearing Clock"
+title: "An xkcd Leap-Smearing Clock"
 date: 2020-02-11
 tags: ["Humor"]
 draft: false
@@ -43,7 +43,7 @@ summary: "Are you tired of your clock assuming that February 29 exists sometimes
         } else {
 
             explanation = ""
-            explanation += "<li>To calcululate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time.</li>"
+            explanation += "<li>To calculate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time.</li>"
             explanation += "<li>Thus, February began "+Math.floor(febSince/1000)+" seconds ago in your time zone."+"</li>"
             explanation += "<li>But, if things were going  ~"+((1-correctionFactor)*100).toFixed(5)+"% slower this would be "+Math.floor((febSince*correctionFactor)/1000)+" seconds ago."+"</li>"
             explanation += "<li>The corrected time is that many seconds since February began, or "+Math.floor(correctedTime.getTime()/1000)+", unix time.</li>"
@@ -58,10 +58,21 @@ summary: "Are you tired of your clock assuming that February 29 exists sometimes
     window.onload = initClock
 </script>
 
+<style type="text/css">
+div#timebox {
+    text-align: center; 
+    background:#e0e0d5; 
+    padding: 15px;
+}
+body.dark div#timebox {
+    background: #454545;
+}
+</style>
+
 In the current <a href="https://xkcd.com/2266/">xkcd comic</a>, a new method of adjusting for leap years is proposed. Instead of adding on a day called February 29th, we simply make the month of February about 3.4% longer ... by slowing down our clocks by 3.4%.  The clock below implements this, along with an explanation below:
 
 <br /> <br />
-<div style="text-align: center; background:#e0e0d5; padding: 15px">
+<div id="timebox">
     The time is now:
     <div id="time"></div>    
     <i>See</i> <a href="https://xkcd.com/2266/">https://xkcd.com/2266/</a>
@@ -86,3 +97,4 @@ In the current <a href="https://xkcd.com/2266/">xkcd comic</a>, a new method of 
     <li>The clock is configured to update internally every 10ms, and though browsers might not keep up with that, it is hopefully reasonably accurate. Rendering should only happen on the slower tick.</li>
 </ul>
 </small>
+

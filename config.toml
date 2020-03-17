@@ -8,3 +8,6 @@ enableRobotsTXT = true
 [params]
    author = "Anthony Biondo"
    description = "Anthony Biondo is a tech lawyer in NYC, who sometimes writes about technology, security, and maybe even the law."
+
+[markup.goldmark.renderer]
+   unsafe= true
