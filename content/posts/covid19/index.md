@@ -45,5 +45,5 @@ But I'm just a guy who saw [3Blue1Brown's excellent video](https://www.youtube.c
 
 These graphs update automatically with the data published on github.  
 
-You can see the code that generates this [here](https://gist.github.com/tonyb486/c1eab7e683cea973b6242661fd68e9a9).
+You can see the code that generates this [here](https://github.com/tonyb486/tonybox.net/blob/master/content/posts/covid19/covid19.py).
 
