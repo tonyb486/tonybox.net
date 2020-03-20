@@ -8,6 +8,7 @@ from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
 country = "US"
+filepath = "/srv/www/tmp/"
 
 covidUrl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
 covidData=pd.read_csv(covidUrl)
@@ -39,8 +40,8 @@ plt.title("Cases of COVID-19 in %s\nGenerated on %s\nData From: https://github.c
 
 fig.patch.set_alpha(0.)
 
-fig.savefig("covid19.png", dpi=300)
-fig.savefig("covid19.svg", dpi=300)
+fig.savefig(filepath+"covid19.png", dpi=300)
+fig.savefig(filepath+"covid19.svg", dpi=300)
 
 #### CURVE FIT
 
@@ -64,8 +65,8 @@ plt.xlim(start, end)
 plt.title("Exponential Curve Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(country, time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
 
-fig.savefig("covid19-fit.png", dpi=300)
-fig.savefig("covid19-fit.svg", dpi=300)
+fig.savefig(filepath+"covid19-fit.png", dpi=300)
+fig.savefig(filepath+"covid19-fit.svg", dpi=300)
 
 ## Logistic Fits!
 
@@ -108,8 +109,8 @@ ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(country,time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
 
-fig.savefig("covid19-logistic-fit.png", dpi=300)
-fig.savefig("covid19-logistic-fit.svg", dpi=300)
+fig.savefig(filepath+"covid19-logistic-fit.png", dpi=300)
+fig.savefig(filepath+"covid19-logistic-fit.svg", dpi=300)
 
 ## Second Logistic Fit
 
@@ -121,5 +122,5 @@ ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(country,time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
 
-fig.savefig("covid19-logistic-fit2.png", dpi=300)
-fig.savefig("covid19-logistic-fit2.svg", dpi=300)
+fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300)
+fig.savefig(filepath+"covid19-logistic-fit2.svg", dpi=300)
