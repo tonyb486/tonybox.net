@@ -4,23 +4,26 @@ import matplotlib.dates as mdates
 import time, datetime
 import numpy as np
 
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+
 country = "US"
 
 covidUrl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
 covidData=pd.read_csv(covidUrl)
 
-usData = covidData.where(covidData["Country/Region"] == country).dropna(how="all")
-usDaily = pd.DataFrame(usData.sum(axis=0).iloc[4:])
-usDaily.index = pd.to_datetime(usDaily.index)
+countryData = covidData.where(covidData["Country/Region"] == country).dropna(how="all")
+countryDaily = pd.DataFrame(countryData.sum(axis=0).iloc[4:])
+countryDaily.index = pd.to_datetime(countryDaily.index)
 
 fig = plt.figure(figsize=(10,5))
 ax = fig.add_subplot(111)
 
-ax.plot(usDaily)
-ax.plot(usDaily, ".")
+ax.plot(countryDaily)
+ax.plot(countryDaily, ".")
 
-ax.set_xticks(pd.date_range(usDaily.index[0], periods=500, freq='W'), minor=False)
-ax.set_xticks(pd.date_range(usDaily.index[0], periods=100, freq='D'), minor=True)
+ax.set_xticks(pd.date_range(countryDaily.index[0], periods=500, freq='W'), minor=False)
+ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='D'), minor=True)
 ax.grid(which='major', alpha=0.9)
 ax.grid(which='minor', alpha=0.2)
 
@@ -43,7 +46,7 @@ fig.savefig("covid19.svg", dpi=300)
 
 import datetime
 import scipy.optimize
-x0,y0 = zip(*enumerate(list(usDaily[0])))
+x0,y0 = zip(*enumerate(list(countryDaily[0])))
 
 f = lambda t, a, b: a**(t-b)
 (a,b), _ = scipy.optimize.curve_fit(f, x0, y0)
@@ -69,16 +72,16 @@ fig.savefig("covid19-fit.svg", dpi=300)
 fig = plt.figure(figsize=(10,5))
 ax = fig.add_subplot(111)
 
-ax.plot(usDaily, label="Actual Data", linewidth=1)
-ax.plot(usDaily, ".")
+ax.plot(countryDaily, label="Actual Data", linewidth=1)
+ax.plot(countryDaily, ".")
 
-ax.set_xticks(pd.date_range(usDaily.index[0], periods=100, freq='W'), minor=False)
-ax.set_xticks(pd.date_range(usDaily.index[0], periods=100, freq='D'), minor=True)
+ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='W'), minor=False)
+ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='D'), minor=True)
 ax.grid(which='major', alpha=0.9)
 ax.grid(which='minor', alpha=0.2)
 
-ax.set_xticks(pd.date_range(usDaily.index[0], periods=500, freq='W'), minor=False)
-ax.set_xticks(pd.date_range(usDaily.index[0], periods=100, freq='D'), minor=True)
+ax.set_xticks(pd.date_range(countryDaily.index[0], periods=500, freq='W'), minor=False)
+ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='D'), minor=True)
 ax.grid(which='major', alpha=0.9)
 ax.grid(which='minor', alpha=0.2)
 
