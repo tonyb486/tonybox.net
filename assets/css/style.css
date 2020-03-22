@@ -213,3 +213,7 @@ body.dark .figtext {
     fill: white;
     transition: 1s ease;
 }
+
+body.dark img.invertable {
+    filter: invert(1);
+}

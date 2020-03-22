@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import matplotlib.ticker as ticker
 import time, datetime, scipy.optimize
 import numpy as np
 
@@ -10,6 +11,7 @@ register_matplotlib_converters()
 # Configuration
 country = "US"
 filepath = "/srv/www/tmp/"
+facecolor = "#f6f4ef"
 
 # Ingest Data
 covidUrl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv"
@@ -22,7 +24,6 @@ countryDaily.index = pd.to_datetime(countryDaily.index)
 
 # For a nice display
 if country == "US": countryName = "the US"
-elif country == "": countryName = "the World"
 else: countryName = country
 
 # Set up the graph 
@@ -31,8 +32,8 @@ ax = fig.add_subplot(111)
 
 ax.set_xticks(pd.date_range(countryDaily.index[0], periods=500, freq='W'), minor=False)
 ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='D'), minor=True)
-ax.grid(which='major', alpha=0.9)
-ax.grid(which='minor', alpha=0.2)
+ax.grid(which='major', alpha=0.9, linestyle=":")
+ax.grid(which='minor', alpha=0.2, linestyle=":")
 
 ax.set_xlabel("Date")
 ax.set_ylabel("Cases in %s"%(countryName))
@@ -49,9 +50,9 @@ ax.plot(countryDaily)
 ax.plot(countryDaily, ".")
 
 fig.patch.set_alpha(0.)
-
-fig.savefig(filepath+"covid19.png", dpi=300)
-fig.savefig(filepath+"covid19.svg", dpi=300)
+ax.set_facecolor(facecolor)
+fig.savefig(filepath+"covid19.png", dpi=300, bbox_inches="tight")
+fig.savefig(filepath+"covid19.svg", dpi=300, bbox_inches="tight")
 
 ###
 # Perform an exponential curve fit
@@ -79,9 +80,9 @@ plt.title("Exponential Curve Fit for COVID-19 Cases in %s\nGenerated on %s\nData
 plt.legend()
 
 fig.patch.set_alpha(0.)
-
-fig.savefig(filepath+"covid19-fit.png", dpi=300)
-fig.savefig(filepath+"covid19-fit.svg", dpi=300)
+ax.set_facecolor(facecolor)
+fig.savefig(filepath+"covid19-fit.png", dpi=300, bbox_inches="tight")
+fig.savefig(filepath+"covid19-fit.svg", dpi=300, bbox_inches="tight")
 
 ###
 ## Perform a logistic curve fit
@@ -97,13 +98,13 @@ ax.plot(countryDaily, ".")
 
 ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='W'), minor=False)
 ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='D'), minor=True)
-ax.grid(which='major', alpha=0.9)
-ax.grid(which='minor', alpha=0.2)
+ax.grid(which='major', alpha=0.9, linestyle=":")
+ax.grid(which='minor', alpha=0.2, linestyle=":")
 
 ax.set_xticks(pd.date_range(countryDaily.index[0], periods=500, freq='W'), minor=False)
 ax.set_xticks(pd.date_range(countryDaily.index[0], periods=100, freq='D'), minor=True)
-ax.grid(which='major', alpha=0.9)
-ax.grid(which='minor', alpha=0.2)
+ax.grid(which='major', alpha=0.9, linestyle=":")
+ax.grid(which='minor', alpha=0.2, linestyle=":")
 
 ax.set_xlabel("Date")
 ax.set_ylabel("Cases in %s"%(countryName))
@@ -129,8 +130,9 @@ ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
 
-fig.savefig(filepath+"covid19-logistic-fit.png", dpi=300)
-fig.savefig(filepath+"covid19-logistic-fit.svg", dpi=300)
+ax.set_facecolor(facecolor)
+fig.savefig(filepath+"covid19-logistic-fit.png", dpi=300, bbox_inches="tight")
+fig.savefig(filepath+"covid19-logistic-fit.svg", dpi=300, bbox_inches="tight")
 
 ## Second Logistic Fit
 
@@ -142,5 +144,79 @@ ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
 
-fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300)
-fig.savefig(filepath+"covid19-logistic-fit2.svg", dpi=300)
+ax.set_facecolor(facecolor)
+fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300, bbox_inches="tight")
+fig.savefig(filepath+"covid19-logistic-fit2.svg", dpi=300, bbox_inches="tight")
+
+
+###
+# US vs Italy
+###
+
+# Cutoff & Country to Compare to
+caseCutoff = 100
+countryComparison = "Italy"
+
+# Filter and lightly process the data for the US and Italy
+usData = covidData.where(covidData["Country/Region"] == "US").dropna(how="all")
+usDaily = pd.DataFrame(usData.sum(axis=0).iloc[4:])
+usDaily.index = pd.to_datetime(usDaily.index)
+
+cpData = covidData.where(covidData["Country/Region"] == countryComparison).dropna(how="all")
+cpDaily = pd.DataFrame(cpData.sum(axis=0).iloc[4:])
+cpDaily.index = pd.to_datetime(cpDaily.index)
+
+# Find the series starting from >100 cases...
+usRecent = usDaily[(usDaily[0]>=caseCutoff).idxmax():]
+cpRecent = cpDaily[(cpDaily[0]>=caseCutoff).idxmax():]
+
+fig = plt.figure(figsize=(10,8))
+ax = fig.add_subplot(111)
+
+# Plot the existing data
+ax.bar(range(0, len(cpRecent)), cpRecent[0], alpha=0.5, label="%s (Starting from %s)"%(countryComparison, cpRecent.index[0].strftime("%Y-%m-%d")), color="C0")
+ax.bar(range(0, len(usRecent)), usRecent[0], alpha=0.5, label="US (Starting from %s)"%(usRecent.index[0].strftime("%Y-%m-%d")), color="C1")
+
+# Set up the graph
+ax.minorticks_on()
+ax.tick_params(axis='x', which='minor', bottom=False)
+ax.grid(which='major', alpha=1.0, linestyle=":", axis="y")
+ax.grid(which='minor', alpha=0.5, linestyle=":", axis="y")
+ax.set_xlim(-1,len(cpRecent),int(np.floor(len(cpRecent)/10)))
+
+ax.set_title("COVID-19 Growth in the US vs %s"%(countryComparison))
+ax.set_xlabel("Days since %dth case"%(caseCutoff))
+ax.set_ylabel("Number of confirmed cases")
+
+
+## Annotations for clarity
+ax.annotate("Day of %dth Case\n%s for the US\n%s for %s"%(caseCutoff, usRecent.index[0].strftime("%b %d"), cpRecent.index[0].strftime("%b %d"), countryComparison),
+            xy=(0, 500), xytext=(-.5,max(ax.get_ylim())/10),
+            arrowprops=dict(arrowstyle="->"))
+
+def format_xaxis(x, p=None):
+    if x<0: return ""
+    x = int(x)
+    dayString = "Day %d\n\n"%(x)
+    usString = usRecent.index[x].strftime("US: %b %d\n") if x < len(usRecent) else ""
+    cpString = cpRecent.index[x].strftime(countryComparison+": %b %d\n") if x < len(cpRecent) else ""
+    return dayString+usString+cpString
+    
+ax.xaxis.set_major_formatter(ticker.FuncFormatter(format_xaxis))
+ax.locator_params(axis="x", integer=True, nbins=12, prune="both")
+
+ax.legend(loc=[0.01,0.78])
+ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
+            transform=ax.transAxes, fontsize=10, verticalalignment='top',
+            bbox=dict(facecolor='white', edgecolor='lightgray', boxstyle='round'))
+
+ax.annotate("Latest Data\nin the US",
+            xy=(len(usRecent)-1, usRecent[0][-1]), xytext=(len(usRecent)-1,usRecent[0][-1]+max(ax.get_ylim())/10),
+            arrowprops=dict(arrowstyle="->"), ha='center')
+
+# Color and Save
+fig.patch.set_alpha(0.)
+ax.set_facecolor(facecolor)
+fig.subplots_adjust(bottom=0.2)
+fig.savefig(filepath+"covid19-us-italy.png", dpi=300, bbox_inches="tight")
+fig.savefig(filepath+"covid19-us-italy.svg", dpi=300, bbox_inches="tight")

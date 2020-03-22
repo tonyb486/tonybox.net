@@ -9,13 +9,19 @@ summary: "Some charts showing COVID-19 cases in the US, including a general grow
 
 Here's a simple chart, showing the growth of COVID-19, updated regularly from data published on <a href="https://github.com/CSSEGISandData/COVID-19/">github</a> by CSSE at Johns Hopkins University.  If you'd like more detailed information, they have an excellent [information center](https://coronavirus.jhu.edu/).
 
-<img alt="A chart based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19.svg" style="width: 100%">
+<img alt="A chart based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19.svg" style="width: 100%" class="invertable">
+
+## Comparison with Italy
+
+I've seen a lot of people comparing the US's growth of COVID-19 to that of Italy, but on a time delay. For a while, both were growing at a very similar rate, and Vox made an [interesting chart](https://www.vox.com/future-perfect/2020/3/20/21179040/coronavirus-us-italy-not-overreacting) comparing the two recently.  I made a similar chart, which updates as the John's Hopkins data updates, shown below:
+
+<img alt="A chart based on the data from https://github.com/CSSEGISandData/COVID-19/ comparing the US and Italy" src="https://tmp.tonybox.net/covid19-us-italy.svg" style="width: 100%" class="invertable">
 
 ## Exponential Fit
 
 With scipy, we can fit an exponential curve to this data.  In this case, I'm only fitting two variables: the day the exponential growth "began," (*i.e.*, the date when there was at least 1 case expected by the curve, from which growth continued exponentially by the shown factor) shown as the start date in the legend below, and the factor by  which it has been growing since then, also shown in the legend:
 
-<img alt="A chart with an exponential curve fit, based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19-fit.svg" style="width: 100%">
+<img alt="A chart with an exponential curve fit, based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19-fit.svg" style="width: 100%" class="invertable">
 
 <center><small>
 
@@ -35,11 +41,11 @@ It's also an issue that the current rate is probably inflated due to the growth 
 
 With those caveats, we can see below the effect of assuming a hypothetical inflection point about ~3 days away, and using the other variables from our previous exponential fit:
 
-<img alt="A chart with an logistic curve fit, based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19-logistic-fit.svg" style="width: 100%">
+<img alt="A chart with an logistic curve fit, based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19-logistic-fit.svg" style="width: 100%" class="invertable">
 
 And here, we can see the effect of assuming a hypothetical inflection point about ~10 days away, which dramatically increases the expected number of total cases, L:
 
-<img alt="A chart with an logistic curve fit, based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19-logistic-fit2.svg" style="width: 100%">
+<img alt="A chart with an logistic curve fit, based on the data from https://github.com/CSSEGISandData/COVID-19/" src="https://tmp.tonybox.net/covid19-logistic-fit2.svg" style="width: 100%" class="invertable">
 
 But I'm just a guy who saw [3Blue1Brown's excellent video](https://www.youtube.com/watch?v=Kas0tIxDvrg) on this topic and thought I could try this at home, so take these charts with a healthy heaping of salt.
 
