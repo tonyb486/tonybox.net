@@ -219,4 +219,4 @@ def comparisonChart(caseCutoff, countryComparison, filename):
     fig.savefig(filepath+filename+".svg", dpi=300, bbox_inches="tight")
 
 # Do the comparison, given the cutoff & country to compare to
-doComparison(100, "Italy", "covid19-us-italy")
+comparisonChart(100, "Italy", "covid19-us-italy")
