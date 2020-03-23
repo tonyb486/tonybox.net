@@ -10,7 +10,7 @@ register_matplotlib_converters()
 
 # Configuration
 country = "US"
-filepath = ""#/srv/www/tmp/"
+filepath = "/srv/www/tmp/"
 facecolor = "#f6f4ef"
 
 # Ingest Data
@@ -231,4 +231,4 @@ def comparisonChart(caseCutoff, countryComparison, filename):
 
 # Do the comparison, given the cutoff & country to compare to
 comparisonChart(100, "Italy", "covid19-us-italy")
-comparisonChart(100, "China", "covid19-us-china")
+#comparisonChart(100, "China", "covid19-us-china")
