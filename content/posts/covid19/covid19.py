@@ -10,7 +10,7 @@ register_matplotlib_converters()
 
 # Configuration
 country = "US"
-filepath = "/srv/www/tmp/"
+filepath = ""#/srv/www/tmp/"
 facecolor = "#f6f4ef"
 
 # Ingest Data
@@ -130,6 +130,11 @@ ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
 
+## Add some annotation
+a1 = ax.annotate("Hypothetical Inflection Point\n(if things QUICKLY start slowing down)",
+            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=8),fL(b,L)*1.25),
+            arrowprops=dict(arrowstyle="->"), ha='center')
+
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit.png", dpi=300, bbox_inches="tight")
 fig.savefig(filepath+"covid19-logistic-fit.svg", dpi=300, bbox_inches="tight")
@@ -143,6 +148,12 @@ startdate = datetime.date(2020, 1, 22) + datetime.timedelta(days=b)
 ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=%d, Assuming Inflection ~%s)"%(a, L, startdate.strftime("%Y-%m-%d")))
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
 plt.legend()
+
+## Add some annotation
+a1.remove() # remove old one
+ax.annotate("Hypothetical Inflection Point\n(if things LESS QUICKLY start slowing down)",
+            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=8),fL(b,L)*1.25),
+            arrowprops=dict(arrowstyle="->"), ha='center')
 
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300, bbox_inches="tight")
@@ -183,7 +194,7 @@ def comparisonChart(caseCutoff, countryComparison, filename):
 
     ax.set_title("COVID-19 Growth in the US vs %s"%(countryComparison))
     ax.set_xlabel("Days since %dth case"%(caseCutoff))
-    ax.set_ylabel("Number of confirmed cases")
+    ax.set_ylabel("Number of cases")
 
 
     ## Annotations for clarity
@@ -220,3 +231,4 @@ def comparisonChart(caseCutoff, countryComparison, filename):
 
 # Do the comparison, given the cutoff & country to compare to
 comparisonChart(100, "Italy", "covid19-us-italy")
+comparisonChart(100, "China", "covid19-us-china")
