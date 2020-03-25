@@ -17,6 +17,9 @@ facecolor = "#f6f4ef"
 covidUrl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
 covidData=pd.read_csv(covidUrl)
 
+deathUrl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"
+deathData=pd.read_csv(deathUrl)
+
 # Filter and lightly process the data
 countryData = covidData.where(covidData["Country/Region"] == country).dropna(how="all")
 countryDaily = pd.DataFrame(countryData.sum(axis=0).iloc[4:])
@@ -43,7 +46,11 @@ start = datetime.date.today() - datetime.timedelta(days=45)
 end = datetime.date.today() + datetime.timedelta(days=2)
 plt.xlim(start, end)
 
-plt.title("Cases of COVID-19 in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
+plt.title("Cases of COVID-19 in %s"%(countryName))
+
+ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
+            transform=ax.transAxes, fontsize=10, verticalalignment='top',
+            bbox=dict(facecolor='white', edgecolor='lightgray', boxstyle='round'))
 
 # Plot the data
 ax.plot(countryDaily)
@@ -76,8 +83,8 @@ ax.plot(x, [f(i,a,b) for i,_ in enumerate(x)], ":", label="Exponential Curve Fit
 start = datetime.date.today() - datetime.timedelta(days=25)
 end = datetime.date.today() + datetime.timedelta(days=6)
 plt.xlim(start, end)
-plt.title("Exponential Curve Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName, time.strftime("%Y-%m-%d @ %H:%M %Z")))
-plt.legend()
+plt.title("Exponential Curve Fit for COVID-19 Cases in %s"%(countryName))
+ax.legend(loc=[0.01,0.76])
 
 fig.patch.set_alpha(0.)
 ax.set_facecolor(facecolor)
@@ -114,6 +121,11 @@ start = datetime.date.today() - datetime.timedelta(days=30)
 end = datetime.date.today() + datetime.timedelta(days=15)
 plt.xlim(start, end)
 
+ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
+            transform=ax.transAxes, fontsize=10, verticalalignment='top',
+            bbox=dict(facecolor='white', edgecolor='lightgray', boxstyle='round'))
+
+
 # We want to predict out 15 days ahead for both
 x = pd.date_range('2020-01-22', datetime.date.today()+ datetime.timedelta(days=15), freq='D')
 
@@ -127,13 +139,13 @@ L, _ = scipy.optimize.curve_fit(fL, x0, y0)
 startdate = datetime.date(2020, 1, 22) + datetime.timedelta(days=b)
 ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=%d, Assuming Inflection ~%s)"%(a, L, startdate.strftime("%Y-%m-%d")))
 
-plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
-plt.legend()
+plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s"%(countryName))
+ax.legend(loc=[0.01,0.71])
 
 ## Add some annotation
 a1 = ax.annotate("Hypothetical Inflection Point\n(if things QUICKLY start slowing down)",
-            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=8),fL(b,L)*1.25),
-            arrowprops=dict(arrowstyle="->"), ha='center')
+            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=25),fL(b,L)*.8),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.3"), ha='left', va='bottom')
 
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit.png", dpi=300, bbox_inches="tight")
@@ -146,14 +158,13 @@ L, _ = scipy.optimize.curve_fit(fL, x0, y0)
 
 startdate = datetime.date(2020, 1, 22) + datetime.timedelta(days=b)
 ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=%d, Assuming Inflection ~%s)"%(a, L, startdate.strftime("%Y-%m-%d")))
-plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
-plt.legend()
+plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s"%(countryName))
 
 ## Add some annotation
 a1.remove() # remove old one
 ax.annotate("Hypothetical Inflection Point\n(if things LESS QUICKLY start slowing down)",
-            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=8),fL(b,L)*1.25),
-            arrowprops=dict(arrowstyle="->"), ha='center')
+            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=25),fL(b,L)*.8),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.3"), ha='left', va='bottom')
 
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300, bbox_inches="tight")
@@ -164,13 +175,13 @@ fig.savefig(filepath+"covid19-logistic-fit2.svg", dpi=300, bbox_inches="tight")
 # US vs Italy
 ###
 
-def comparisonChart(caseCutoff, countryComparison, filename):
+def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename):
     # Filter and lightly process the data for the US and Italy
-    usData = covidData.where(covidData["Country/Region"] == "US").dropna(how="all")
+    usData = dataSource.where(dataSource["Country/Region"] == "US").dropna(how="all")
     usDaily = pd.DataFrame(usData.sum(axis=0).iloc[4:])
     usDaily.index = pd.to_datetime(usDaily.index)
 
-    cpData = covidData.where(covidData["Country/Region"] == countryComparison).dropna(how="all")
+    cpData = dataSource.where(dataSource["Country/Region"] == countryComparison).dropna(how="all")
     cpDaily = pd.DataFrame(cpData.sum(axis=0).iloc[4:])
     cpDaily.index = pd.to_datetime(cpDaily.index)
 
@@ -193,14 +204,14 @@ def comparisonChart(caseCutoff, countryComparison, filename):
     ax.set_xlim(-1,len(cpRecent),int(np.floor(len(cpRecent)/10)))
 
     ax.set_title("COVID-19 Growth in the US vs %s"%(countryComparison))
-    ax.set_xlabel("Days since %dth case"%(caseCutoff))
-    ax.set_ylabel("Number of cases")
+    ax.set_xlabel("Days since %dth %s"%(caseCutoff, metric))
+    ax.set_ylabel("Number of %ss"%(metric))
 
 
     ## Annotations for clarity
-    ax.annotate("Day of %dth Case\n%s for the US\n%s for %s"%(caseCutoff, usRecent.index[0].strftime("%b %d"), cpRecent.index[0].strftime("%b %d"), countryComparison),
-                xy=(0, 500), xytext=(-.5,max(ax.get_ylim())/10),
-                arrowprops=dict(arrowstyle="->"))
+    ax.annotate("Day of %dth %s\n%s for the US\n%s for %s"%(caseCutoff, metric, usRecent.index[0].strftime("%b %d"), cpRecent.index[0].strftime("%b %d"), countryComparison),
+                xy=(0, max(ax.get_ylim())/100), xytext=(-.5,max(ax.get_ylim())/10),
+                arrowprops=dict(arrowstyle="->", connectionstyle="arc3"))
 
     def format_xaxis(x, p=None):
         if x<0: return ""
@@ -211,7 +222,7 @@ def comparisonChart(caseCutoff, countryComparison, filename):
         return dayString+usString+cpString
         
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(format_xaxis))
-    ax.locator_params(axis="x", integer=True, nbins=12, prune="both")
+    ax.locator_params(axis="x", integer=True, nbins=10, prune="both")
 
     ax.legend(loc=[0.01,0.78])
     ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
@@ -230,5 +241,7 @@ def comparisonChart(caseCutoff, countryComparison, filename):
     fig.savefig(filepath+filename+".svg", dpi=300, bbox_inches="tight")
 
 # Do the comparison, given the cutoff & country to compare to
-comparisonChart(100, "Italy", "covid19-us-italy")
-#comparisonChart(100, "China", "covid19-us-china")
+comparisonChart(covidData, "case", 100, "Italy", "covid19-us-italy")
+
+# Do the more morbid comparison...
+comparisonChart(deathData, "death", 100, "Italy", "covid19-us-italy-deaths")
