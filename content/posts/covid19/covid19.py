@@ -84,7 +84,7 @@ start = datetime.date.today() - datetime.timedelta(days=25)
 end = datetime.date.today() + datetime.timedelta(days=6)
 plt.xlim(start, end)
 plt.title("Exponential Curve Fit for COVID-19 Cases in %s"%(countryName))
-ax.legend(loc=[0.01,0.76])
+ax.legend(loc="upper left", bbox_to_anchor=[0,.85])
 
 fig.patch.set_alpha(0.)
 ax.set_facecolor(facecolor)
@@ -140,7 +140,7 @@ startdate = datetime.date(2020, 1, 22) + datetime.timedelta(days=b)
 ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=%d, Assuming Inflection ~%s)"%(a, L, startdate.strftime("%Y-%m-%d")))
 
 plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s"%(countryName))
-ax.legend(loc=[0.01,0.71])
+ax.legend(loc="upper left", bbox_to_anchor=[0,.85])
 
 ## Add some annotation
 a1 = ax.annotate("Hypothetical Inflection Point\n(if things QUICKLY start slowing down)",
@@ -165,6 +165,7 @@ a1.remove() # remove old one
 ax.annotate("Hypothetical Inflection Point\n(if things LESS QUICKLY start slowing down)",
             xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=25),fL(b,L)*.8),
             arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.3"), ha='left', va='bottom')
+ax.legend(loc="upper left", bbox_to_anchor=[0,.85])
 
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300, bbox_inches="tight")
@@ -203,7 +204,7 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
     ax.grid(which='minor', alpha=0.5, linestyle=":", axis="y")
     ax.set_xlim(-1,len(cpRecent),int(np.floor(len(cpRecent)/10)))
 
-    ax.set_title("COVID-19 Growth in the US vs %s"%(countryComparison))
+    ax.set_title("COVID-19 %ss in the US vs %s"%(metric.capitalize(), countryComparison))
     ax.set_xlabel("Days since %dth %s"%(caseCutoff, metric))
     ax.set_ylabel("Number of %ss"%(metric))
 
@@ -224,7 +225,7 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(format_xaxis))
     ax.locator_params(axis="x", integer=True, nbins=10, prune="both")
 
-    ax.legend(loc=[0.01,0.78])
+    ax.legend(loc="upper left", bbox_to_anchor=[0,.88])
     ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
                 transform=ax.transAxes, fontsize=10, verticalalignment='top',
                 bbox=dict(facecolor='white', edgecolor='lightgray', boxstyle='round'))
