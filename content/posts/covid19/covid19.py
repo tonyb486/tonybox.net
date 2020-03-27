@@ -234,6 +234,12 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
                 xy=(len(usRecent)-1, usRecent[0][-1]), xytext=(len(usRecent)-1,usRecent[0][-1]+max(ax.get_ylim())/10),
                 arrowprops=dict(arrowstyle="->"), ha='center')
 
+    if countryComparison == "Italy":
+        mar12it = (cpRecent.index.get_loc("2020-03-12"))
+
+        ax.text(mar12it, usRecent.iloc[mar12it], "*", ha="center")
+        ax.text(0,-.2, "* No new data for Italy on Mar 12", transform=ax.transAxes, fontdict=dict(size=8))
+
     # Color and Save
     fig.patch.set_alpha(0.)
     ax.set_facecolor(facecolor)
