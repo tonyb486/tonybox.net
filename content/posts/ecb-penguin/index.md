@@ -1,5 +1,5 @@
 ---
-title: "Exploring the Penguin in AES-ECB"
+title: "Exploring an Encrypted Penguin with AES-ECB"
 date: 2020-04-04
 tags: ["Security", "Programming"]
 description: "Exploring the Penguin in AES-ECB Mode"
@@ -7,7 +7,7 @@ summary: "We've seen the image of a penguin encrypted with AES-ECB on Wikipedia 
 ogimage: https://tonybox.net/posts/ecb-penguin/tux-enc.png
 ---
 
-<small>**To get it out of the way**: don't roll your own crypto, and don't use ECB mode if you somehow find yourself in the unenviable position of having to roll your own crypto unless you really *really* know what you're doing. The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.</small>
+<small>**Quick Warning**: don't roll your own crypto, and don't use ECB mode unless you *really* know what you're doing. The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.</small>
 
 # Encrypting a Penguin
 
