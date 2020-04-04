@@ -1,18 +1,21 @@
 ---
-title: "Seeing the Penguin in AES-ECB"
+title: "Exploring the Penguin in AES-ECB"
 date: 2020-04-04
 tags: ["Security", "Programming"]
-description: "Seeing the Penguin in AES-ECB Mode"
+description: "Exploring the Penguin in AES-ECB Mode"
 summary: "We've seen the image of a penguin encrypted with AES-ECB on Wikipedia before, but what happens if we add a tiny bit of noise to the equation?"
+ogimage: https://tonybox.net/posts/ecb-penguin/tux-enc.png
 ---
 
-<small>**To get it out of the way**: don't roll your own crypto, and don't use ECB mode if you somehow find yourself in the unenviable position of having to roll your own crypto. ECB mode reveals information about your plaintext, and as small as information this may be in a realistic scenario, unless you really *really* know what you are doing, there are better options.  The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.</small>
+<small>**To get it out of the way**: don't roll your own crypto, and don't use ECB mode if you somehow find yourself in the unenviable position of having to roll your own crypto unless you really *really* know what you're doing. The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.</small>
 
 # Encrypting a Penguin
 
-The reason AES (and other algorithms) in [ECB (Electronic Codebook)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#ECB) mode leak information is simple: they encrypt blocks of data, and if they encounter the same block of data twice, they will produce the same encrypted result twice. This leaks information, showing you when two identical and aligned (usually 128-bit or 256-bit) blocks of data are the same, and opening up some avenues of attack (including active attacks, like replay attacks).  
+The simplest way to encrypt large amounts of data with a block cipher like AES is to simply divide your data into blocks of equal size (in AES, the size being the key size), and to encrypt each block individually.  This is called [ECB (Electronic Codebook)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#ECB) mode, and while it is simple, it suffers from some major drawbacks.  Specifically, AES in ECB mode leaks information about patterns in your plain text. Here, we're going to explore what kind of patterns are leaked, and what kind of patterns are not leaked.
 
-On wikipedia and elsewhere, a diagram  is often shown to illustrate this point. In this diagram, we take an image of a penguin and encrypt it using AES with 128 bit blocks in ECB mode, revealing that the penguin is still very visible underneath:
+The reason AES (and other algorithms) in ECB mode leak information is simple: they encrypt blocks of data, and if they encounter the same block of data twice, they will produce the same encrypted result twice. This leaks information, showing you when two identical and aligned (usually 128-bit or 256-bit) blocks of data are the same, and opening up some avenues of attack (including active attacks, like replay attacks).  
+
+On wikipedia and elsewhere, a diagram is often shown to illustrate this point. In this diagram, we take an image of a penguin and encrypt it using AES with 128 bit blocks in ECB mode, revealing that the penguin is still very visible underneath:
 
 {{% svg "drawing.svg"  %}}
 
@@ -44,7 +47,7 @@ And with that, you can see the property of diffusion, and slightly better unders
 
 # Hiding Some of a Penguin
 
-Keep in mind that adding the noise uniformly to 10% of the bytes means that most blocks will end up getting a bit flipped, and so we effectively spread the noise out to affect every block, scrambling the penguin.
+Keep in mind that adding the noise uniformly to 15% of the bytes means that most blocks will end up getting a bit flipped, and so we effectively spread the noise out to affect every block, scrambling the penguin.
 
 Here, we can see what happens if we add slightly less noise, flipping the least significant bit in about 3% of the bytes.  As shown below, the penguin is more scrambled than without the noise, as the uniform noise is amplified in the blocks where it is present, but the noise doesn't affect every block and the penguin is still somewhat visible underneath:
 
