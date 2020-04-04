@@ -11,7 +11,7 @@ ogimage: https://tonybox.net/posts/ecb-penguin/tux-enc.png
 
 # Encrypting a Penguin
 
-The simplest way to encrypt large amounts of data with a block cipher like AES is to simply divide your data into blocks of equal size (in AES, the size being the key size), and to encrypt each block individually.  This is called [ECB (Electronic Codebook)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#ECB) mode, and while it is simple, it suffers from some major drawbacks.  Specifically, AES in ECB mode leaks information about patterns in your plain text. Here, we're going to explore what kind of patterns are leaked, and what kind of patterns are not leaked.
+The simplest way to encrypt large amounts of data with a block cipher like AES is to divide your data into blocks of equal size (in AES, the size being the key size), and to encrypt each block individually.  This is called [ECB (Electronic Codebook)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#ECB) mode, and while it is simple, it suffers from some major drawbacks.  Specifically, AES in ECB mode leaks information about patterns in your plain text. Here, we're going to explore what kind of patterns are leaked, and what kind of patterns are not leaked.
 
 The reason AES (and other algorithms) in ECB mode leak information is simple: they encrypt blocks of data, and if they encounter the same block of data twice, they will produce the same encrypted result twice. This leaks information, showing you when two identical and aligned (usually 128-bit or 256-bit) blocks of data are the same, and opening up some avenues of attack (including active attacks, like replay attacks).  
 
