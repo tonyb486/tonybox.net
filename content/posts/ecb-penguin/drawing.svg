@@ -1,0 +1,118 @@
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="100%"
+   viewBox="0 0 186.53125 93.662504"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2">
+    <marker
+       class="figtext"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send"
+       style="overflow:visible">
+      <path
+         id="path908"
+         style="fill-opacity:1;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       class="figtext"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path878"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill-opacity:1;fill-rule:evenodd;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="DistanceStart"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <g
+         id="g2300"
+         style="fill-opacity:1;stroke-opacity:1">
+        <path
+           style="fill-opacity:1;stroke-width:1.15;stroke-linecap:square;stroke-opacity:1"
+           d="M 0,0 H 2"
+           id="path2306" />
+        <path
+           style="fill-opacity:1;fill-rule:evenodd;stroke-opacity:1"
+           d="M 0,0 13,4 9,0 13,-4 Z"
+           id="path2302" />
+        <path
+           style="fill-opacity:1;stroke-width:1;stroke-linecap:square;stroke-opacity:1"
+           d="M 0,-4 V 40"
+           id="path2304" />
+      </g>
+    </marker>
+    <marker
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Send"
+       style="overflow:visible">
+      <path
+         id="path890" class="figtext"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill-opacity:1;fill-rule:evenodd;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)" />
+    </marker>
+  </defs>
+  <g
+     transform="translate(5.2916668,5.2916668)"
+     id="layer1">
+    <image
+       xlink:href="tux.png"
+       y="0"
+       x="0"
+       width="70.114586"
+       height="83.07917"
+       preserveAspectRatio="none"
+       id="image20"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-opacity:1" />
+    <image
+       xlink:href="tux-enc.png"
+       y="0"
+       x="105.83334"
+       width="70.114586"
+       height="83.07917"
+       preserveAspectRatio="none"
+       id="image34"
+       style="opacity:1;stop-opacity:1" />
+    <g
+       id="g1469"
+       transform="translate(0.44732412)">
+      <text
+         id="text40"
+         y="33.775505"
+         x="76.480858"
+         class="figtext"
+         style="font-style:normal;font-weight:normal;font-size:10.5833px;font-family:sans-serif;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.264583"
+           y="33.775505"
+           x="76.480858"
+           id="tspan38">ECB</tspan></text>
+      <path
+         id="path873"
+         class="figtext"
+         d="M 74.437281,44.268868 H 98.703179"
+         style="fill:none;stroke-width:1.32292;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-mid:url(#DistanceStart);marker-end:url(#Arrow2Send)" />
+    </g>
+  </g>
+</svg>

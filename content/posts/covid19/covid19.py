@@ -83,8 +83,8 @@ ax.plot(x, [f(i,a,b) for i,_ in enumerate(x)], ":", label="Exponential Curve Fit
 start = datetime.date.today() - datetime.timedelta(days=25)
 end = datetime.date.today() + datetime.timedelta(days=6)
 plt.xlim(start, end)
-plt.title("Exponential Curve Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName, time.strftime("%Y-%m-%d @ %H:%M %Z")))
-plt.legend()
+plt.title("Exponential Curve Fit for COVID-19 Cases in %s"%(countryName))
+ax.legend(loc="upper left", bbox_to_anchor=[0,.85])
 
 fig.patch.set_alpha(0.)
 ax.set_facecolor(facecolor)
@@ -121,6 +121,11 @@ start = datetime.date.today() - datetime.timedelta(days=30)
 end = datetime.date.today() + datetime.timedelta(days=15)
 plt.xlim(start, end)
 
+ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
+            transform=ax.transAxes, fontsize=10, verticalalignment='top',
+            bbox=dict(facecolor='white', edgecolor='lightgray', boxstyle='round'))
+
+
 # We want to predict out 15 days ahead for both
 x = pd.date_range('2020-01-22', datetime.date.today()+ datetime.timedelta(days=15), freq='D')
 
@@ -134,13 +139,13 @@ L, _ = scipy.optimize.curve_fit(fL, x0, y0)
 startdate = datetime.date(2020, 1, 22) + datetime.timedelta(days=b)
 ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=%d, Assuming Inflection ~%s)"%(a, L, startdate.strftime("%Y-%m-%d")))
 
-plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
-plt.legend()
+plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s"%(countryName))
+ax.legend(loc="upper left", bbox_to_anchor=[0,.85])
 
 ## Add some annotation
 a1 = ax.annotate("Hypothetical Inflection Point\n(if things QUICKLY start slowing down)",
-            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=8),fL(b,L)*1.25),
-            arrowprops=dict(arrowstyle="->", connectionstyle="arc3"), ha='center')
+            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=25),fL(b,L)*.8),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.3"), ha='left', va='bottom')
 
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit.png", dpi=300, bbox_inches="tight")
@@ -153,14 +158,14 @@ L, _ = scipy.optimize.curve_fit(fL, x0, y0)
 
 startdate = datetime.date(2020, 1, 22) + datetime.timedelta(days=b)
 ax.plot(x, [fL(i,L) for i,_ in enumerate(x)], ":", label="Logistic Fit (%.2f, L=%d, Assuming Inflection ~%s)"%(a, L, startdate.strftime("%Y-%m-%d")))
-plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s\nGenerated on %s\nData From: https://github.com/CSSEGISandData/COVID-19/"%(countryName,time.strftime("%Y-%m-%d @ %H:%M %Z")))
-plt.legend()
+plt.title("Hypothetical Logistic Fit for COVID-19 Cases in %s"%(countryName))
 
 ## Add some annotation
 a1.remove() # remove old one
 ax.annotate("Hypothetical Inflection Point\n(if things LESS QUICKLY start slowing down)",
-            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=8),fL(b,L)*1.25),
-            arrowprops=dict(arrowstyle="->", connectionstyle="arc3"), ha='center')
+            xy=(startdate,fL(b,L)), xytext=(startdate-datetime.timedelta(days=25),fL(b,L)*.8),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.3"), ha='left', va='bottom')
+ax.legend(loc="upper left", bbox_to_anchor=[0,.85])
 
 ax.set_facecolor(facecolor)
 fig.savefig(filepath+"covid19-logistic-fit2.png", dpi=300, bbox_inches="tight")
@@ -199,7 +204,7 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
     ax.grid(which='minor', alpha=0.5, linestyle=":", axis="y")
     ax.set_xlim(-1,len(cpRecent),int(np.floor(len(cpRecent)/10)))
 
-    ax.set_title("COVID-19 Growth in the US vs %s"%(countryComparison))
+    ax.set_title("COVID-19 %ss in the US vs %s"%(metric.capitalize(), countryComparison))
     ax.set_xlabel("Days since %dth %s"%(caseCutoff, metric))
     ax.set_ylabel("Number of %ss"%(metric))
 
@@ -220,7 +225,7 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
     ax.xaxis.set_major_formatter(ticker.FuncFormatter(format_xaxis))
     ax.locator_params(axis="x", integer=True, nbins=10, prune="both")
 
-    ax.legend(loc=[0.01,0.78])
+    ax.legend(loc="upper left", bbox_to_anchor=[0,.88])
     ax.text(0.015, 0.97, "Data From: https://github.com/CSSEGISandData/COVID-19/\nChart From: https://tonybox.net/posts/covid19/\nGenerated on %s"%(time.strftime("%Y-%m-%d @ %H:%M %Z")),
                 transform=ax.transAxes, fontsize=10, verticalalignment='top',
                 bbox=dict(facecolor='white', edgecolor='lightgray', boxstyle='round'))
@@ -229,15 +234,21 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
                 xy=(len(usRecent)-1, usRecent[0][-1]), xytext=(len(usRecent)-1,usRecent[0][-1]+max(ax.get_ylim())/10),
                 arrowprops=dict(arrowstyle="->"), ha='center')
 
+    if countryComparison == "Italy":
+        mar12it = (cpRecent.index.get_loc("2020-03-12"))
+
+        ax.text(mar12it, usRecent.iloc[mar12it], "*", ha="center")
+        ax.text(0,-.2, "* No new data for Italy on Mar 12", transform=ax.transAxes, fontdict=dict(size=8))
+
     # Color and Save
-    fig.patch.set_alpha(0.)
     ax.set_facecolor(facecolor)
     fig.subplots_adjust(bottom=0.2)
     fig.savefig(filepath+filename+".png", dpi=300, bbox_inches="tight")
+    fig.patch.set_alpha(0.)
     fig.savefig(filepath+filename+".svg", dpi=300, bbox_inches="tight")
 
 # Do the comparison, given the cutoff & country to compare to
 comparisonChart(covidData, "case", 100, "Italy", "covid19-us-italy")
 
 # Do the more morbid comparison...
-comparisonChart(deathData, "death", 50, "Italy", "covid19-us-italy-deaths")
+comparisonChart(deathData, "death", 100, "Italy", "covid19-us-italy-deaths")

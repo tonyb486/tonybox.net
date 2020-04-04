@@ -209,8 +209,14 @@ body, main, footer, a, span.chroma, .chroma, pre {
     transition: 1s ease;
 }
 
+.figtext {
+    fill: black;
+    stroke: black;
+}
+
 body.dark .figtext {
     fill: white;
+    stroke: white;
     transition: 1s ease;
 }
 

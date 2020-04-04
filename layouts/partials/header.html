@@ -23,7 +23,11 @@
     <meta name="description" content="{{ .Site.Params.Description }}" />
     <meta property="og:description" content="{{ .Site.Params.description }}" />
     {{ end }}
+    {{ if isset .Params "ogimage" }}
+    <meta property="og:image" content="{{ .Params.ogimage }} " />
+    {{ else }}
     <meta property="og:image" content="https://tonybox.net/img/fb.jpg" />
+    {{ end }}
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ .Title }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
