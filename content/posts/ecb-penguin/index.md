@@ -27,7 +27,7 @@ Keep in mind that a regular photograph may exhibit some of these characteristics
 
 AES is a fairly secure algorithm designed to exhibit the property of [diffusion](https://en.wikipedia.org/wiki/Confusion_and_diffusion). In an ideal encryption algorithm exhibiting diffusion, flipping any one bit in the input should have a 50% chance of impacting *each* bit in the output.  That is, changing a *single bit* in the input *completely scrambles* the output.  
 
-The issue with AES in ECB mode is that this diffusion occurs with respect to each block individually. In ECB, flipping a bit that in one block has no chance of flipping any bits in another block, whereas with modes like [CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_(CBC)), flipping a bit can effectively scramble the output of all later blocks.
+The issue with AES in ECB mode is that this diffusion occurs with respect to each block individually. In ECB, flipping a bit in one block has no chance of flipping any bits in another block, whereas with modes like [CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_(CBC)), flipping a bit can effectively scramble the output of all later blocks.
 
 But, for us, the property of diffusion also means that adding a tiny bit of uniform noise *to the entire image* will completely scramble the output, even in ECB mode.  
 
