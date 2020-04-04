@@ -17,6 +17,10 @@ I've seen a lot of people comparing the US's growth of COVID-19 to that of Italy
 
 <img alt="A chart based on the data from https://github.com/CSSEGISandData/COVID-19/ comparing the US and Italy" src="https://tmp.tonybox.net/covid19-us-italy.svg" style="width: 100%" class="invertable">
 
+Comparing the amount of deaths, while more morbid, shows (at least, as of this writing) the US is further behind Italy. 
+
+<img alt="A chart based on the data from https://github.com/CSSEGISandData/COVID-19/ comparing the US and Italy in terms of deaths" src="https://tmp.tonybox.net/covid19-us-italy-deaths.svg" style="width: 100%" class="invertable">
+
 ## Exponential Fit
 
 With scipy, we can fit an exponential curve to this data.  In this case, I'm only fitting two variables: the day the exponential growth "began," (*i.e.*, the date when there was at least 1 case expected by the curve, from which growth continued exponentially by the shown factor) shown as the start date in the legend below, and the factor by  which it has been growing since then, also shown in the legend:
