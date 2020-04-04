@@ -241,10 +241,10 @@ def comparisonChart(dataSource, metric, caseCutoff, countryComparison, filename)
         ax.text(0,-.2, "* No new data for Italy on Mar 12", transform=ax.transAxes, fontdict=dict(size=8))
 
     # Color and Save
-    fig.patch.set_alpha(0.)
     ax.set_facecolor(facecolor)
     fig.subplots_adjust(bottom=0.2)
     fig.savefig(filepath+filename+".png", dpi=300, bbox_inches="tight")
+    fig.patch.set_alpha(0.)
     fig.savefig(filepath+filename+".svg", dpi=300, bbox_inches="tight")
 
 # Do the comparison, given the cutoff & country to compare to
