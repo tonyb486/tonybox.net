@@ -7,7 +7,7 @@ summary: "We've seen the image of a penguin encrypted with AES-ECB on Wikipedia 
 ogimage: https://tonybox.net/posts/ecb-penguin/tux-enc.png
 ---
 
-<small>**Quick Warning**: don't roll your own crypto, and don't use ECB mode unless you *really* know what you're doing. The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.</small>
+<small>**Quick Warning**: don't roll your own crypto, and don't use ECB mode unless you *really* know what you're doing. The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.  There are other risks apart from seeing penguins, like [chosen prefix oracles](https://cryptopals.com/sets/2/challenges/12) that can reveal plaintext.</small>
 
 # Encrypting a Penguin
 
