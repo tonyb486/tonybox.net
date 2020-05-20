@@ -36,3 +36,5 @@ Here it is, 13 easy steps to the noodle nirvana:
 12. Place the remaining powder into the bowl - try to use only half the powder, if you use too much it will become too powerful and possibly dangerous. Stir the concoction with your spoon or finger, and chant the following: "OH GREAT LORD RAMEN, TOUCH US WITH YOUR NOODLY APPENDAGE."  
 
 13. Rapidly consume the noodles and the accompanying liquid like the animal you are. Congratulations, and enjoy your well-earned soup-like dinner.
+
+<!-- End Silliness -->
