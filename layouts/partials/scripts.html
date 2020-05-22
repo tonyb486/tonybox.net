@@ -20,16 +20,23 @@
         }
         //{{ end }}
 
+        function updateDarkMode(darkModePreference) {
+            // Based on the user's preference, we decide if we want dark mode or not.
+            // if the localstorage is set to "toggle," then we toggle it to the opposite of that preference.
+            darkModeToggled = (localStorage.getItem("darkmode") == "toggle");
+            document.body.className = (darkModeToggled ? !darkModePreference : darkModePreference) ? "dark" : null;
+        }
 
-        // Dark Mode
-        document.addEventListener('DOMContentLoaded', function () {
-            document.body.className = localStorage.getItem("darkmode");
+        document.addEventListener('DOMContentLoaded', function() {
+            darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+            darkMode.addListener(function(e) { updateDarkMode(e.matches); })
+            updateDarkMode(darkMode.matches);
         });
 
         function toggle_darkmode() {
-            var newColor = localStorage.getItem("darkmode") == "dark" ? "light" : "dark";
-            localStorage.setItem("darkmode", newColor);
-            document.body.className = newColor;
+            var newToggle = ((localStorage.getItem("darkmode") == "toggle") ? "default" : "toggle")
+            localStorage.setItem("darkmode", newToggle);
+            updateDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
         }
 
         // Menu Toggle for Mobile

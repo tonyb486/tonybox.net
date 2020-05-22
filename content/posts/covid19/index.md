@@ -4,7 +4,7 @@ date: 2020-03-19
 tags: ["Math", "Charts", "Programming"]
 description: "Some US COVID-19 Charts"
 summary: "Some charts showing COVID-19 cases in the US, including a general growth chart, an exponential curve fitting, and a couple of hypothetical logistic curve fittings."
-
+draft: true
 ---
 
 Here's a simple chart, showing the growth of COVID-19, updated regularly from data published on <a href="https://github.com/CSSEGISandData/COVID-19/">github</a> by CSSE at Johns Hopkins University.  If you'd like more detailed information, they have an excellent [information center](https://coronavirus.jhu.edu/).
