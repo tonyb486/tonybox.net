@@ -223,3 +223,8 @@ body.dark .figtext {
 body.dark img.invertable {
     filter: invert(1);
 }
+
+/* I don't like the web page shifting when you click a link */
+html {
+    overflow-y: scroll;
+} 
