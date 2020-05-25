@@ -7,13 +7,9 @@ summary: "We've seen the image of a penguin encrypted with AES-ECB on Wikipedia 
 ogimage: https://tonybox.net/posts/ecb-penguin/tux-enc.png
 ---
 
-<small>**Quick Warning**: don't roll your own crypto, and don't use ECB mode unless you *really* know what you're doing. The example below illustrates some interesting properties of AES in ECB mode, but shouldn't be taken to minimize the risk of using a mode like ECB.  There are other risks apart from seeing penguins, like [chosen prefix oracles](https://cryptopals.com/sets/2/challenges/12) that can reveal plaintext.</small>
-
-# Encrypting a Penguin
-
 The simplest way to encrypt large amounts of data with a block cipher like AES is to divide your data into blocks of equal size (in AES, the size being the key size), and to encrypt each block individually.  This is called [ECB (Electronic Codebook)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#ECB) mode, and while it is simple, it suffers from some major drawbacks.  Specifically, AES in ECB mode leaks information about patterns in your plain text. Here, we're going to explore what kind of patterns are leaked, and what kind of patterns are not leaked.
 
-The reason AES (and other algorithms) in ECB mode leak information is simple: they encrypt blocks of data, and if they encounter the same block of data twice, they will produce the same encrypted result twice. This leaks information, showing you when two identical and aligned (usually 128-bit or 256-bit) blocks of data are the same, and opening up some avenues of attack (including active attacks, like replay attacks).  
+The reason AES (and other algorithms) in ECB mode leak information is simple: they encrypt blocks of data, and if they encounter the same block of data twice, they will produce the same encrypted result twice. Thus, when two identical and aligned (usually 128-bit or 256-bit) blocks of data are the same, patterns are apparent, opening up some avenues of attack - including cryptanalysis, and even some active attacks, like certain types of replay attacks.
 
 On wikipedia and elsewhere, a diagram is often shown to illustrate this point. In this diagram, we take an image of a penguin and encrypt it using AES with 128 bit blocks in ECB mode, revealing that the penguin is still very visible underneath:
 
@@ -43,18 +39,11 @@ With that change, the original image is left looking virtually identical to the 
 
 {{% svg "drawing2.svg"  %}} 
 
-And with that, you can see the property of diffusion, and slightly better understand the nuance of the risks of using AES-ECB.  ECB still reveals information about the ciphertext of your image, and small amounts of information can still break cryptosystems, so **please don't take this as a reason to use ECB**.  
-
-# Hiding Some of a Penguin
-
-Keep in mind that adding the noise uniformly to 15% of the bytes means that most blocks will end up getting a bit flipped, and so we effectively spread the noise out to affect every block, scrambling the penguin.
+And with that, you can see the property of diffusion, and hopefully slightly better understand the nuance behind that image of an encrypted penguin.  Keep in mind, however, that adding the noise uniformly to 15% of the bytes means that most blocks will end up getting a bit flipped, and so we effectively spread the noise out to affect every block, scrambling the penguin.
 
 Here, we can see what happens if we add slightly less noise, flipping the least significant bit in about 3% of the bytes.  As shown below, the penguin is more scrambled than without the noise, as the uniform noise is amplified in the blocks where it is present, but the noise doesn't affect every block and the penguin is still somewhat visible underneath:
 
 {{% svg "drawing3.svg"  %}}
 
-Finally, even if your input data is noisy, even if you intentionally make it noisy, ECB is usually not a good idea, particularly when we have better modes available for most, if not all, applications.
-
-Security is hard, and small changes and nuance can make a big difference.
-
+Real data often has patterns.  Even adding noise, as shown above, doesn't remove all of those patterns unless the noise is applied with complete uniformity.  In reality, even if your input data is noisy, and even if you intentionally make it noisy, ECB is usually not a good idea.  This is true particularly when we have better options available for most, if not all, applications.
 
