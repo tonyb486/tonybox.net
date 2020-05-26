@@ -7,7 +7,7 @@ plugins: ["threejs", "stlviewer"]
 description: "Implementing a simple WebGL viewer for STL files using Three.JS."
 ---
 
-Here's a simple part that I made in OpenSCAD:
+Here's a simple part that I made in Fusion 360:
 <div class="stlviewer" data-src="/objects/keystone/keystone.stl" data-rotate="x" data-zdistance="2"></div>
 
 It's a <a href="/objects/keystone/">simple bracket</a> to mount keystone jacks to a wall. This article isn't about that, it's about the viewer used to display it above.  It uses WebGL to render it in your browser, and the three.js library makes it easy to implement.  It's part of my [hugo](https://gohugo.io/) template now, since I'd like to post some of the objects that I make for 3D printing.
