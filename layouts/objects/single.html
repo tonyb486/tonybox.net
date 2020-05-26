@@ -1,0 +1,55 @@
+{{ partial "header.html" . }}
+
+<main>
+    <article>
+        <header>
+            <h1>{{ .Title }}</h1>
+
+
+            {{ if isset .Params "date"}}
+            <address>Anthony Biondo</address>
+            <time>{{ .Date.Format "2006-01-02" }}</time>
+            {{ end }}
+
+            {{ if isset .Params "tags"}}
+            <small>
+                Filed under:
+                {{ range .Param "tags" }}
+                {{ $tagpage := ($.Site.GetPage (printf "/%s/%s" "tags" ( . | urlize))) }}
+                <a href="{{ $tagpage.Permalink }}">{{.}}</a>
+                {{ end }}
+            </small>
+            {{ end }}
+
+            {{ if isset .Params "downloads" }}
+            <div>
+                <b>Files:</b>
+                {{ range .Param "downloads" }}
+                <a href="{{.}}">{{.}}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+        </header>
+
+        <section>
+
+            {{ if isset .Params "model"}}
+                <div class="stlviewer" data-src='{{ .Param "model" }}' data-zdistance="2" data-rotate='{{ .Param "rotate"}}'></div>
+            {{ end }}
+        </section>
+        <br />
+        <setion>
+            <div style="font-size: 20px"> {{ .Param "summary" }} </div>
+            {{ .Content }}
+        </setion>
+        <!--
+{{ template "_internal/disqus.html" . }}   
+        -->
+    </article> 
+    {{ partial "footer.html" . }}
+</main>
+
+</body>
+
+</html>

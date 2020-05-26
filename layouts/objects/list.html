@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+
+<main>
+    <h1>Latest Posts</h1>
+    {{- range where .Pages ".Params.unlisted" "!=" "true" -}}
+    <article>
+        <h2><a href="{{.RelPermalink}}">{{.Title}}</a></h2>
+        <p>{{.Date.Format "2006-01-02"}}</p>
+        <p>{{ .Summary }}</p>
+        <p><a href="{{ .RelPermalink }}">Read More...</a></p>
+    </article>
+    {{ end }}
+    {{ partial "footer.html" . }}
+</main>
+</body>
+
+</html>

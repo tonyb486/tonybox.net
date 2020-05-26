@@ -8,9 +8,9 @@ description: "Implementing a simple WebGL viewer for STL files using Three.JS."
 ---
 
 Here's a simple part that I made in OpenSCAD:
-<div class="stlviewer" data-src="/models/hook.stl"></div>
+<div class="stlviewer" data-src="/objects/keystone/keystone.stl" data-rotate="x" data-zdistance="2"></div>
 
-It's meant to be a small hook for a hose, that you can attach to a 2x4.  I haven't 3D printed it yet, so I don't know if it works - but one thing that that *does* work is the 3D viewer above.  It uses WebGL to render it in your browser, and the three.js library makes it easy to implement.  It's part of my [hugo](https://gohugo.io/) template now, since I'd like to post some of the objects that I make for 3D printing.
+It's a <a href="/objects/keystone/">simple bracket</a> to mount keystone jacks to a wall. This article isn't about that, it's about the viewer used to display it above.  It uses WebGL to render it in your browser, and the three.js library makes it easy to implement.  It's part of my [hugo](https://gohugo.io/) template now, since I'd like to post some of the objects that I make for 3D printing.
 
 Here's the code for the initial version, in roughly literate programming style.
 
@@ -104,9 +104,8 @@ Now our mesh is loaded, but we need to figure out a way to center it.  I used th
 var middle = new THREE.Vector3();
 geometry.computeBoundingBox();
 geometry.boundingBox.getCenter(middle);
-mesh.position.x = -1 * middle.x;
-mesh.position.y = -1 * middle.y;
-mesh.position.z = -1 * middle.z;
+mesh.geometry.applyMatrix(new THREE.Matrix4().makeTranslation( 
+                              -middle.x, -middle.y, -middle.z ) );
 {{< / highlight >}}
 
 We also want to pull the camera away so that it is a reasonable size.  Again I used the element's bounding box, picked the largest dimension, and pulled the camera away by 1.5 times that.  This may not be ideal, but it seems to work well enough so far.
@@ -155,3 +154,5 @@ As a free bonus tip, you can serve the current directory over HTTP with python:
 {{< highlight bash>}}
 python2 -m SimpleHTTPServer
 {{< / highlight >}}
+
+<b>Updated</b>: 2020-05-25, to update the model shown and the way the model is centered

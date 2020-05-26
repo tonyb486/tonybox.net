@@ -14,7 +14,8 @@ function STLViewer(elem, model) {
     }
 
     var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    var camera = new THREE.PerspectiveCamera(70, elem.clientWidth / elem.clientHeight, 1, 1000);
+    var camera = new THREE.PerspectiveCamera(50, elem.clientWidth / elem.clientHeight, 1, 1000);
+    
     renderer.setSize(elem.clientWidth, elem.clientHeight);
     elem.appendChild(renderer.domElement);
 
@@ -31,7 +32,7 @@ function STLViewer(elem, model) {
     controls.enableZoom = false;
     controls.enablePan = false;
     controls.autoRotate = true;
-    controls.autoRotateSpeed = .75;
+    controls.autoRotateSpeed = 0.75;
 
     var scene = new THREE.Scene();
 
@@ -42,20 +43,23 @@ function STLViewer(elem, model) {
         var mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
 
+
         // Compute the middle
         var middle = new THREE.Vector3();
         geometry.computeBoundingBox();
         geometry.boundingBox.getCenter(middle);
 
         // Center it
-        mesh.position.x = -1 * middle.x;
-        mesh.position.y = -1 * middle.y;
-        mesh.position.z = -1 * middle.z;
+        mesh.geometry.applyMatrix(new THREE.Matrix4().makeTranslation( -middle.x, -middle.y, -middle.z ) );
+        
+        // Rotate, if desired
+        if(elem.getAttribute("data-rotate") == "x") 
+            mesh.rotation.x = -Math.PI/2
 
         // Pull the camera away as needed
         var largestDimension = Math.max(geometry.boundingBox.max.x,
             geometry.boundingBox.max.y, geometry.boundingBox.max.z)
-        camera.position.z = largestDimension * 1.5;
+        camera.position.z = largestDimension * elem.getAttribute("data-zdistance");
 
 
         var animate = function () {
