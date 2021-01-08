@@ -16,7 +16,7 @@ Here's the code for the initial version, in roughly literate programming style.
 
 ### Getting Started
 
-First, include the three.js libraries that we'll be using.  We'll need to get these from the [three.js repository](https://github.com/mrdoob/three.js/).  We'll be using [three.js itself](https://github.com/mrdoob/three.js/blob/dev/build/three.min.js), the [STL Loader plugin](https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/STLLoader.js), and the [Orbit Controls plugin](https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/STLLoader.js), so you can drag it around.
+First, include the three.js libraries that we'll be using.  We'll need to get these from the [three.js repository](https://github.com/mrdoob/three.js/).  We'll be using [three.js itself](https://github.com/mrdoob/three.js/blob/dev/build/three.min.js), the [STL Loader plugin](https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/STLLoader.js), and the [Orbit Controls plugin](https://github.com/mrdoob/three.js/blob/dev/examples/js/controls/OrbitControls.js), so you can drag it around.
 
 {{< highlight html>}}
 <script src="/build/three.min.js"></script>
