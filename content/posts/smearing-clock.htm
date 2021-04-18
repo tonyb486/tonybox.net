@@ -7,13 +7,13 @@ postsummary: "Are you tired of your clock assuming that February 29 exists somet
 ---
 
 <script type="text/javascript">
-    var febTime, marTime, correctionFactor, lastCorrectedTime
+    var febLength, febTime, marTime, correctionFactor, lastCorrectedTime
 
     function initClock() {
         year = new Date().getFullYear()
         febTime = (new Date("02/01/"+year).getTime())
         marTime = (new Date("03/01/"+year).getTime())
-        var febLength = marTime-febTime
+        febLength = marTime-febTime
         var realLength = 28*60*60*24*1000
         correctionFactor = realLength/febLength
 
@@ -38,10 +38,11 @@ postsummary: "Are you tired of your clock assuming that February 29 exists somet
         if (correctionFactor == 1) {
             document.getElementById("current_explanation").innerHTML = "<li><b>It is not a leap year, so no adjustment is needed.</b></li>"
             document.getElementById("time").innerHTML = "<b>"+(new Date())+"</b>"
-        } else if (curTime > marTime) {
+        } else if (curTime > marTime || curTime < febTime) {
             document.getElementById("current_explanation").innerHTML = "<li><b>It is not Feburary, so no adjustment is needed.</b></li>"
             document.getElementById("time").innerHTML = "<b>"+(new Date())+"</b>"
         } else {
+            explanation = "";
             explanation += "<li><b>We can correct for this by expanding 28 days into "+Math.floor(febLength/1000)+" seconds.</b></li>"
             explanation += "<li>To calculate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time.</li>"
             explanation += "<li>Thus, February began "+Math.floor(febSince/1000)+" seconds ago in your time zone."+"</li>"
