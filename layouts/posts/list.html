@@ -7,11 +7,7 @@
         <h2><a href="{{.RelPermalink}}">{{.Title}}</a></h2>
         <p>{{.Date.Format "2006-01-02"}}</p>
         <p>
-            {{ if .Params.postsummary }}
-                {{ .Params.summary | markdownify }}
-            {{ else }}
-                {{ .Summary }}
-            {{ end }}
+           {{ .Summary }}
         </p>
         <p><a href="{{ .RelPermalink }}">Read More...</a></p>
     </article>
