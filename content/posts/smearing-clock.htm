@@ -3,7 +3,7 @@ title: "An xkcd Leap-Smearing Clock"
 date: 2020-02-11
 tags: ["Humor"]
 draft: false
-summary: "Are you tired of your clock assuming that February 29 exists sometimes? Look no further, this clock is set to go 3.4% slower in Feburary during leap years, so that the 29th doesn't exist!"
+postsummary: "Are you tired of your clock assuming that February 29 exists sometimes? Look no further, this clock is set to go 3.4% slower in Feburary during leap years, so that the 29th doesn't exist!"
 ---
 
 <script type="text/javascript">
@@ -21,14 +21,12 @@ summary: "Are you tired of your clock assuming that February 29 exists sometimes
         explanation += "<li>In your time zone, February began at "+Math.floor(febTime/1000)+", unix time.</li>"
         explanation += "<li>In your time zone, February ends at "+Math.floor(marTime/1000)+", unix time.</li>"
         explanation += "<li>February is "+Math.floor(febLength/1000)+" seconds ("+febLength/1000/60/60/24+" days) long this year."+"</li>"
-        explanation += "<li>Were it not a leap year, it would be "+realLength/1000+" seconds long (28 days)."+"</li>"
-        explanation += "<li>We can correct for this by expanding 28 days into "+Math.floor(febLength/1000)+" seconds."+"</li>"
+        explanation += "<li>February is "+realLength/1000+" seconds long (28 days) in non-leap-years."+"</li>"
 
         document.getElementById("main_explanation").innerHTML = explanation
 
         computeTime();
         setInterval(computeTime, 10)
-    
     }
     function computeTime() {
         curTime = (new Date()).getTime()
@@ -37,12 +35,14 @@ summary: "Are you tired of your clock assuming that February 29 exists sometimes
         if(Math.floor(correctedTime/1000) == lastCorrectedTime) return;
         lastCorrectedTime = Math.floor(correctedTime/1000)
 
-        if (curTime > marTime) {
-            document.getElementById("current_explanation").innerHTML = "Because it is not Feburary, however, no adjustment is needed."
+        if (correctionFactor == 1) {
+            document.getElementById("current_explanation").innerHTML = "<li><b>It is not a leap year, so no adjustment is needed.</b></li>"
+            document.getElementById("time").innerHTML = "<b>"+(new Date())+"</b>"
+        } else if (curTime > marTime) {
+            document.getElementById("current_explanation").innerHTML = "<li><b>It is not Feburary, so no adjustment is needed.</b></li>"
             document.getElementById("time").innerHTML = "<b>"+(new Date())+"</b>"
         } else {
-
-            explanation = ""
+            explanation += "<li><b>We can correct for this by expanding 28 days into "+Math.floor(febLength/1000)+" seconds.</b></li>"
             explanation += "<li>To calculate the corrected time, note that it is now "+Math.floor(curTime/1000)+", unix time.</li>"
             explanation += "<li>Thus, February began "+Math.floor(febSince/1000)+" seconds ago in your time zone."+"</li>"
             explanation += "<li>But, if things were going  ~"+((1-correctionFactor)*100).toFixed(5)+"% slower this would be "+Math.floor((febSince*correctionFactor)/1000)+" seconds ago."+"</li>"
@@ -69,7 +69,7 @@ body.dark div#timebox {
 }
 </style>
 
-In the current <a href="https://xkcd.com/2266/">xkcd comic</a>, a new method of adjusting for leap years is proposed. Instead of adding on a day called February 29th, we simply make the month of February about 3.4% longer ... by slowing down our clocks by 3.4%.  The clock below implements this, along with an explanation below:
+A recent <a href="https://xkcd.com/2266/">xkcd comic</a> proposes a new method of adjusting for leap years. Instead of adding on a day called February 29th, it proposes that we simply make the month of February about 3.4% longer ... by slowing down our clocks by 3.4%.  The clock below implements this, along with an explanation of the reasoning:
 
 <br /> <br />
 <div id="timebox">
