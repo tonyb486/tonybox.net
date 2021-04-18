@@ -3,7 +3,7 @@ title: "Exploring an Encrypted Penguin with AES-ECB"
 date: 2020-04-04
 tags: ["Security", "Programming"]
 description: "Exploring the Penguin in AES-ECB Mode"
-summary: "We've seen the image of a penguin encrypted with AES-ECB on Wikipedia before, but what happens if we add a tiny bit of noise to the equation?"
+postsummary: "We've seen the image of a penguin encrypted with AES-ECB on Wikipedia before, but what happens if we add a tiny bit of noise to the equation?"
 ogimage: https://tonybox.net/posts/ecb-penguin/tux-enc.png
 ---
 
