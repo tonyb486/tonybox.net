@@ -1,4 +1,3 @@
-
 function STLViewerEnable(classname) {
     var models = document.getElementsByClassName(classname);
     for (var i = 0; i < models.length; i++) {
@@ -69,4 +68,8 @@ function STLViewer(elem, model) {
         }; animate();
 
     });
+}
+
+window.onload = function () {
+    STLViewerEnable("stlviewer");
 }

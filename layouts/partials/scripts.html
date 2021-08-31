@@ -1,38 +1,5 @@
-
-    <script type="text/javascript">
-
-        //{{ if in .Params.plugins "stlviewer" }}
-        window.onload = function () {
-            STLViewerEnable("stlviewer");
-        }
-        //{{ end }}
-
-        // Mildly complicated dark mode logic, but it seems to work!
-        function updateDarkMode(darkModePreference) {
-            // Based on the user's preference, we decide if we want dark mode or not.
-            // if the localstorage is set to "toggle," then we toggle it to the opposite of that preference.
-            darkModeToggled = (localStorage.getItem("darkmode") == "toggle");
-            document.body.className = (darkModeToggled ? !darkModePreference : darkModePreference) ? "dark" : null;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            darkMode = window.matchMedia('(prefers-color-scheme: dark)');
-            darkMode.addListener(function(e) { updateDarkMode(e.matches); })
-            updateDarkMode(darkMode.matches);
-        });
-
-        function toggle_darkmode() {
-            var newToggle = ((localStorage.getItem("darkmode") == "toggle") ? "default" : "toggle")
-            localStorage.setItem("darkmode", newToggle);
-            updateDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-        }
-
-        // Menu Toggle for Mobile
-        function toggle_menu() {
-            var menu = document.getElementById("menu");
-            menu.className = (menu.className == "hidden") ? "shown" : "hidden"
-        }
-    </script>
+    {{ $js := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+    <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
     {{ if in .Params.plugins "threejs" }}
     <script src="/plugins/stl/webgl.min.js"></script>
@@ -44,5 +11,3 @@
     {{ if in .Params.plugins "stlviewer" }}
     <script src="/plugins/stl/stlviewer.js"></script>
     {{ end }}
-
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb138ceb6c5f4e45844bb2696ba23ce9"}'></script><!-- End Cloudflare Web Analytics -->

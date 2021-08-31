@@ -1,0 +1,8 @@
+div#timebox {
+    text-align: center; 
+    background:#e0e0d5; 
+    padding: 15px;
+}
+body.dark div#timebox {
+    background: #454545;
+}

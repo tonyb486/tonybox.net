@@ -1,0 +1,40 @@
+---
+title: "An xkcd Leap-Smearing Clock"
+date: 2020-02-11
+tags: ["Humor"]
+draft: false
+summary: "Are you tired of your clock assuming that February 29 exists sometimes? Look no further, this clock is set to go 3.4% slower in Feburary during leap years, so that the 29th doesn't exist!"
+---
+
+<script type="text/javascript" src="clock.js"></script>
+<link rel="stylesheet" href="clock.css">
+
+A recent <a href="https://xkcd.com/2266/">xkcd comic</a> proposes a new method of adjusting for leap years. Instead of adding on a day called February 29th, it proposes that we simply make the month of February about 3.4% longer ... by slowing down our clocks by 3.4%.  The clock below implements this, along with an explanation of the reasoning:
+
+<br /> <br />
+<div id="timebox">
+    The time is now:
+    <div id="time"></div>    
+    <i>See</i> <a href="https://xkcd.com/2266/">https://xkcd.com/2266/</a>
+</div>
+
+<br />
+<b>Explanation: </b>
+
+<small>
+<ul>
+    <span id="main_explanation"></span>
+    <span id="current_explanation"></span>
+</ul>
+</small>
+
+<b>Notes: </b>
+
+<small>
+<ul>
+    <li>The clock only updates on the slower "tick," of about 1.03 seconds, so if you compare this to your watch it should be going slower, and the two should go in and out of phase every ~30 seconds.</li>
+    <li>If you watch the line in the explanation above with the current unix time, it will skip a number every ~30 seconds because it is ticking too slowly.</li>
+    <li>The clock is configured to update internally every 10ms, and though browsers might not keep up with that, it is hopefully reasonably accurate. Rendering should only happen on the slower tick.</li>
+</ul>
+</small>
+
