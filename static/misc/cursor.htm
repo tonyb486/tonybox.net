@@ -18,7 +18,7 @@ body:active {
    100% { background-position: 0% 50%; }
 }
 
-span#sun {
+button#sun {
    cursor: url("cursor/dtsmall2.png") 40 31, auto;
    background: url("cursor/sun.png");
 
@@ -33,7 +33,7 @@ span#sun {
    animation: lrbounce 3s ease infinite, udbounce 2s ease infinite;
 }
 
-span#sun:active {
+button#sun:active {
    background: url("cursor/boom.png");
 }
 
@@ -78,5 +78,5 @@ h1 {
 
 <body>
    <h1>POKE THE SUN</h1>
-   <span id="sun" onclick="randomizesun()" />
+   <button id="sun" onclick="randomizesun()" />
 </body>
