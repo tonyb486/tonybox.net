@@ -1,6 +1,6 @@
 <style type="text/css">
 body {
-   cursor: url("dtsmall.png") 64 0, auto;
+   cursor: url("cursor/dtsmall.png") 64 0, auto;
    margin:0;
    height:100%;
    background: linear-gradient(-45deg, #68b3d9, #68d9b3, #7168d9, #edbf7e);
@@ -9,7 +9,7 @@ body {
 }
 
 body:active {
-   cursor: url("dtsmall2.png") 40 31, auto;
+   cursor: url("cursor/dtsmall2.png") 40 31, auto;
 }
 
 @keyframes gradient {
@@ -19,8 +19,8 @@ body:active {
 }
 
 span#sun {
-   cursor: url("dtsmall2.png") 40 31, auto;
-   background: url("sun.png");
+   cursor: url("cursor/dtsmall2.png") 40 31, auto;
+   background: url("cursor/sun.png");
 
    width:128px;
    height:128px;
@@ -34,7 +34,7 @@ span#sun {
 }
 
 span#sun:active {
-   background: url("boom.png");
+   background: url("cursor/boom.png");
 }
 
 @keyframes lrbounce {
@@ -68,7 +68,7 @@ h1 {
 <script type="text/javascript">
 
    function randomizesun() {
-      new Audio("boom.mp3").play();
+      new Audio("cursor/boom.mp3").play();
       var sun = document.getElementById("sun");
       sun.style.left = Math.random()*(window.innerWidth-256)+"px"
       sun.style.top = Math.random()*(window.innerHeight-256)+"px"
