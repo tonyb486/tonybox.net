@@ -1,4 +1,5 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.6" />
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 <style type="text/css">
 body {
@@ -78,15 +79,9 @@ span#nuke {
 
     position: absolute;
     left: 100px;
-    bottom: 110%;
+    bottom: 128px;
 
-    animation: nuke 1s ease ;
     display: none;
-}
-
-@keyframes nuke {
-   0% { bottom: 128px; }
-   100% { bottom: 110%; }
 }
 
 </style>
@@ -94,8 +89,7 @@ span#nuke {
 
 <script type="text/javascript">
 
-   var nukeLaunched = false;
-
+   var nukeLaunched = 0;
    var nuke = null;
    var sun = null;
    var dt = null;
@@ -103,7 +97,7 @@ span#nuke {
    function randomizeSun() {
       sun.style.background = "url(cursor/sun.png)";
       sun.style.left = Math.random()*(window.innerWidth-256)+"px"
-      sun.style.top = Math.random()*(window.innerHeight-256)+"px"
+      sun.style.top = Math.random()*(window.innerHeight/2)+"px"
    }
 
    function hit() {
@@ -116,34 +110,45 @@ span#nuke {
    }
 
    function dtfire(e) {
-
-      // Play a sound on the first click
-      boom.currentTime = 0;
-      boom.play();
-
+    
       if(nuke.style.display != "block") {
+         nukeLaunched = Date.now()
          nuke.style.display = "block";
          nuke.style.left = e.clientX-32;
+         nuke.style.bottom = 128+"px";
       }
    }
 
-   function dtIterate2() {
+   function dtIterate() {
+
+      // Nothing if nuke isn't in the aire
+      if(nuke.style.display != "block") return
+
+      // If it is, calculate its position at 1px/ms
+      var curTime = Date.now();
+      var nukePos = (curTime-nukeLaunched)+128;
+      nuke.style.bottom = nukePos+"px";
+
+      // If it's gone offscreen, that's it
+      if (nukePos>window.innerHeight) {
+         nuke.style.display = "none";
+         return;
+      }
+
+      // If it's a hit, woo!
       var box = nuke.getBoundingClientRect();
-      if(box.bottom<0) {
-         nuke.style.display="none";
-      } else {
-         sbox = sun.getBoundingClientRect();
+      var sbox = sun.getBoundingClientRect();
 
-         if (!(box.right < sbox.left || 
-               box.left > sbox.right || 
-               box.bottom < sbox.top || 
-               box.top > sbox.bottom)) {
-                  hit();
-                  nuke.style.display="none";
-         }
-         
+      if (!(box.right < sbox.left || 
+            box.left > sbox.right || 
+            box.bottom < sbox.top || 
+            box.top > sbox.bottom)) {
+               hit();
+               nuke.style.display="none";
       }
+      
    }
+
 
    window.onload = function() {
       boom = new Audio("cursor/boom.mp3");
@@ -160,9 +165,7 @@ span#nuke {
          dtfire(e.touches[0]);
       });
 
-      //setInterval(dtIterate, 16)
-
-      setInterval(dtIterate2, 100)
+      setInterval(dtIterate, 16)
 
       randomizeSun();
    }
@@ -173,7 +176,5 @@ span#nuke {
    <h1>POKE THE SUN</h1>
    <span id="sun" onclick="randomizesun"></span>
    <span id="donnyt"></span>
-
-
    <span id="nuke"></span>
 </body>
