@@ -1,0 +1,82 @@
+<style type="text/css">
+body {
+   cursor: url("dtsmall.png") 64 0, auto;
+   margin:0;
+   height:100%;
+   background: linear-gradient(-45deg, #68b3d9, #68d9b3, #7168d9, #edbf7e);
+   background-size: 500%;
+   animation: gradient 10s ease infinite;
+}
+
+body:active {
+   cursor: url("dtsmall2.png") 40 31, auto;
+}
+
+@keyframes gradient {
+   0% { background-position: 0% 50%; }
+   50% { background-position: 100% 100%; }
+   100% { background-position: 0% 50%; }
+}
+
+span#sun {
+   cursor: url("dtsmall2.png") 40 31, auto;
+   background: url("sun.png");
+
+   width:128px;
+   height:128px;
+
+   position:absolute;
+   top:100; left:100;
+
+   border-radius: 64px;
+   border: none;
+   animation: lrbounce 3s ease infinite, udbounce 2s ease infinite;
+}
+
+span#sun:active {
+   background: url("boom.png");
+}
+
+@keyframes lrbounce {
+   0% { margin-left: 0; }
+   50% { margin-left: 10%; }
+   100% { margin-left: 0; }
+}
+
+@keyframes udbounce {
+   0% { margin-top: 0; }
+   50% { margin-top: 10%; }
+   100% { margin-top: 0; }
+}
+
+h1 {
+   font: 900 1.2em sans-serif;
+   text-align: center;
+   margin-top: 50;
+   font-size: 100;
+
+   background: linear-gradient(-45deg, #68b3d9, #68d9b3, #7168d9, #edbf7e);
+   background-clip: text;
+   -webkit-background-clip: text;
+   color: rgba(0,0,0,.2);
+
+   user-select: none;
+}
+</style>
+
+
+<script type="text/javascript">
+
+   function randomizesun() {
+      new Audio("boom.mp3").play();
+      var sun = document.getElementById("sun");
+      sun.style.left = Math.random()*(window.innerWidth-256)+"px"
+      sun.style.top = Math.random()*(window.innerHeight-256)+"px"
+   }
+
+</script>
+
+<body>
+   <h1>POKE THE SUN</h1>
+   <span id="sun" onclick="randomizesun()" />
+</body>
