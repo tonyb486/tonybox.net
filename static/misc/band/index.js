@@ -1,13 +1,14 @@
 import { pipeline, env } from './transformers.min.js';
 
-env.localModelPath = '/misc/band/models/';
-env.allowRemoteModels = false;
+//env.localModelPath = '/misc/band/models/';
+//env.allowRemoteModels = false;
+
 env.backends.onnx.wasm.wasmPaths = '/misc/band/wasm/';
 
 const status = document.getElementById('status');
 
 status.textContent = 'Loading model...';
-const model = await pipeline('zero-shot-classification', 'mobilebert-uncased-mnli')
+const model = await pipeline('zero-shot-classification', 'Xenova/mobilebert-uncased-mnli')
 status.textContent = 'Ready';
 
 // Buttons
