@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <title>Band Name Detector</title>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Band Name Detector</h1>
+        <p id="status"></p>        
+        
+        <div id="resultbar"></div>
+        <div id="resultthing"></div>
+
+        <input type="text" id="bname" placeholder="Band Name" disabled />
+        <input type="submit" id="detect" value="Detect!" disabled />
+
+        <small>This uses <a href="https://huggingface.co/Xenova/mobilebert-uncased-mnli">Xenova/mobilebert-uncased-mnli</a> for classification<br />It attempts a zero-shot classification as "music band name"</small>
+    </main>
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
