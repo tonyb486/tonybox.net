@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg4037"
+   sodipodi:docname="reel-inner.svg"
+   viewBox="0 0 249.04 249.04"
+   version="1.1"
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)">
+  <defs
+     id="defs4039">
+    <linearGradient
+       id="linearGradient3905"
+       y2="-458.64"
+       xlink:href="#linearGradient3878"
+       gradientUnits="userSpaceOnUse"
+       x2="175"
+       y1="-458.64"
+       x1="-29"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3878"
+       inkscape:collect="always">
+      <stop
+         id="stop3880"
+         style="stop-color:#888a85"
+         offset="0" />
+      <stop
+         id="stop3882"
+         style="stop-color:#888a85;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878"
+       id="linearGradient76"
+       gradientUnits="userSpaceOnUse"
+       x1="-29"
+       y1="-458.64"
+       x2="175"
+       y2="-458.64" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878"
+       id="linearGradient78"
+       gradientUnits="userSpaceOnUse"
+       x1="-29"
+       y1="-458.64"
+       x2="175"
+       y2="-458.64" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878"
+       id="linearGradient80"
+       gradientUnits="userSpaceOnUse"
+       x1="-29"
+       y1="-458.64"
+       x2="175"
+       y2="-458.64" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-y="-11"
+     pagecolor="#ffffff"
+     inkscape:window-height="2066"
+     inkscape:window-maximized="1"
+     inkscape:zoom="2.8284272"
+     inkscape:window-x="-11"
+     showgrid="false"
+     borderopacity="1.0"
+     inkscape:current-layer="layer1"
+     inkscape:cx="75.459029"
+     inkscape:cy="73.280382"
+     inkscape:window-width="3840"
+     inkscape:pageopacity="0.0"
+     inkscape:document-units="px"
+     inkscape:document-rotation="0" />
+  <g
+     id="layer1"
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     transform="translate(-225.48 -436.83)">
+    <g
+       id="g3898"
+       transform="translate(186.21538,1048.8014)">
+      <path
+         id="path3876"
+         style="fill:#2e3436"
+         transform="matrix(0.85294,0,0,0.85294,101.52,-96.259)"
+         d="m 174,-458.64 c 0,55.781 -45.219,101 -101,101 -55.781,0 -101,-45.219 -101,-101 0,-55.781 45.219,-101 101,-101 55.781,0 101,45.219 101,101 z"
+         sodipodi:type="arc"
+         sodipodi:ry="101"
+         sodipodi:rx="101"
+         sodipodi:cy="-458.63782"
+         sodipodi:cx="73" />
+      <path
+         id="path3874"
+         style="fill:none;stroke:url(#linearGradient76);stroke-width:2;stroke-linejoin:round"
+         transform="matrix(0.65162,0.36922,-0.36922,0.65162,-52.417,-218.37)"
+         d="m 174,-458.64 c 0,55.781 -45.219,101 -101,101 -55.781,0 -101,-45.219 -101,-101 0,-55.781 45.219,-101 101,-101 55.781,0 101,45.219 101,101 z"
+         sodipodi:type="arc"
+         sodipodi:ry="101"
+         sodipodi:rx="101"
+         sodipodi:cy="-458.63782"
+         sodipodi:cx="73" />
+      <path
+         id="path3886"
+         style="fill:none;stroke:url(#linearGradient78);stroke-width:2;stroke-linejoin:round"
+         transform="matrix(0.59735,0.33847,-0.33847,0.59735,-34.351,-241.02)"
+         d="m 174,-458.64 c 0,55.781 -45.219,101 -101,101 -55.781,0 -101,-45.219 -101,-101 0,-55.781 45.219,-101 101,-101 55.781,0 101,45.219 101,101 z"
+         sodipodi:type="arc"
+         sodipodi:ry="101"
+         sodipodi:rx="101"
+         sodipodi:cy="-458.63782"
+         sodipodi:cx="73" />
+      <path
+         id="path3890"
+         style="fill:none;stroke:url(#linearGradient80);stroke-width:2;stroke-linejoin:round"
+         transform="matrix(0.53704,0.3043,-0.3043,0.53704,-14.277,-266.18)"
+         d="m 174,-458.64 c 0,55.781 -45.219,101 -101,101 -55.781,0 -101,-45.219 -101,-101 0,-55.781 45.219,-101 101,-101 55.781,0 101,45.219 101,101 z"
+         sodipodi:type="arc"
+         sodipodi:ry="101"
+         sodipodi:rx="101"
+         sodipodi:cy="-458.63782"
+         sodipodi:cx="73" />
+      <path
+         id="path3894"
+         style="fill:none;stroke:url(#linearGradient3905);stroke-width:2;stroke-linejoin:round"
+         transform="matrix(0.45865,0.25988,-0.25988,0.45865,11.818,-298.9)"
+         d="m 174,-458.64 c 0,55.781 -45.219,101 -101,101 -55.781,0 -101,-45.219 -101,-101 0,-55.781 45.219,-101 101,-101 55.781,0 101,45.219 101,101 z"
+         sodipodi:type="arc"
+         sodipodi:ry="101"
+         sodipodi:rx="101"
+         sodipodi:cy="-458.63782"
+         sodipodi:cx="73" />
+    </g>
+  </g>
+  <metadata
+     id="metadata40">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title></dc:title>
+        <dc:date>2010-03-18T21:46:21</dc:date>
+        <dc:description />
+        <dc:source>https://openclipart.org/detail/32425/movie-reel-by-rg1024</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>rg1024</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>cinema</rdf:li>
+            <rdf:li>film</rdf:li>
+            <rdf:li>movie</rdf:li>
+            <rdf:li>movie reel</rdf:li>
+            <rdf:li>reel</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
